@@ -1,0 +1,114 @@
+.window {
+  background-color: rgb(236, 233, 216);
+  position: absolute;
+  box-shadow: inset -1px -1px #00138c, inset 1px 1px #0831d9, inset -2px -2px #001ea0, inset 2px 2px #166aee, inset -3px -3px #003bda, inset 3px 3px #0855dd;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0 0 3px;
+  width: 700px;
+  height: 300px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  resize: both;
+}
+
+.titleBar {
+  background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
+  padding: 3px 5px 3px 3px;
+  border-top: 1px solid #0831d9;
+  border-left: 1px solid #0831d9;
+  border-right: 1px solid #001ea0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 7px;
+  font-size: 13px;
+  text-shadow: 1px 1px #0f1089;
+  height: 21px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleBarText {
+  padding-left: 3px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0;
+  margin-right: 24px;
+  -webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.titleBarControls {
+  height: 21px;
+  display: flex;
+}
+
+.minimize {
+  min-width: 21px;
+  min-height: 21px;
+  margin-left: 2px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  box-shadow: none;
+  background-color: #0050ee;
+  transition: background .1s;
+  border: none; 
+  padding: 0;
+  background-image: url('/assets/minimize.svg');
+}
+
+.maximize {
+  min-width: 21px;
+  min-height: 21px;
+  margin-left: 2px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  box-shadow: none;
+  background-color: #0050ee;
+  transition: background .1s;
+  border: none;
+  padding: 0;
+  background-image: url('/assets/maximize.svg');
+}
+
+.close {
+  min-width: 21px;
+  min-height: 21px;
+  margin-left: 2px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  box-shadow: none;
+  background-color: #0050ee;
+  transition: background .1s;
+  border: none;
+  padding: 0;
+  background-image: url('/assets/close.svg');
+}
+
+.close:hover {
+  background-image: url('/assets/close-hover.svg');
+}
+
+.close:active {
+  background-image: url('/assets/close-active.svg');
+}
+
+.maximize:hover {
+  background-image: url('/assets/maximize-hover.svg');
+}
+
+.maximize:active {
+  background-image: url('/assets/maximize-active.svg');
+}
+
+.minimize:hover {
+  background-image: url('/assets/minimize-hover.svg');
+}
+
+.minimize:active {
+  background-image: url('/assets/minimize-active.svg');
+}
