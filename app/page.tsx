@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Window title='1'/>
+      <Window title='2'/>
     </main>
   )
 }

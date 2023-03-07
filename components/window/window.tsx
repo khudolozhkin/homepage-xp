@@ -15,62 +15,60 @@ export default function Window ({title}: WindowProps) {
   
   const window = useRef<HTMLDivElement>(null);
   const titleBar = useRef<HTMLDivElement>(null);
-  const container = useRef<HTMLDivElement>(null);
-  const isClicked = useRef<boolean>(false);
 
-  const coordinates = {
-    startX: 0,
-    startY: 0,
-    lastX: 0,
-    lastY: 0
-  }
+  let isClicked = false;
 
   useEffect(() => {
-    const box = window.current;
-    const cont = container.current;
-    const title = titleBar.current;
+    let top = 100;
 
-    const onMouseDown = (e: MouseEvent) => {
-      isClicked.current = true;
-      coordinates.startX = e.clientX;
-      coordinates.startY = e.clientY;
+    let left = 100;
+    
+    const onDrag = (e: MouseEvent) => {
+      if (!isClicked) return
+
+      top = top + e.movementY;
+
+      left = left + e.movementX;
+
+      console.log(e)
+
+      window.current!.style.zIndex = '10'
+      window.current!.style.transform = `translateX(${left + e.movementX}px) translateY(${top + e.movementY}px)`
     }
 
-    const onMouseUp = (e: MouseEvent) => {
-      isClicked.current = false;
-      coordinates.lastX = box!.offsetLeft;
-      coordinates.lastY = box!.offsetTop;
+    const onDown = () => {
+      isClicked = true;
     }
 
-    const onMouseMove = (e: MouseEvent) => {
-      if (!isClicked.current) return;
-
-      if (box?.style != undefined) {
-        const nextX = e.clientX - coordinates.startX + coordinates.lastX;
-        const nextY = e.clientY - coordinates.startY + coordinates.lastY;
-        console.log()
-        box!.style.top = `${nextY}px`;
-        box!.style.left = `${nextX}px`;
-      }
+    const onUp = () => {
+      isClicked = false;
+      window.current!.style.zIndex = '1'
     }
+    
+    titleBar.current?.addEventListener('mousedown', onDown)
 
-    title?.addEventListener('mousedown', onMouseDown);
-    title?.addEventListener('mouseup', onMouseUp);
-    cont?.addEventListener('mousemove', onMouseMove);
+    window.current?.addEventListener('mousemove', onDrag);
+
+    titleBar.current?.addEventListener('mouseup', onUp)
+
+    //titleBar.current?.addEventListener('mousemove', onUp)
 
 
     const cleanup = () => {
-      title?.removeEventListener('mousedown', onMouseDown)
-      title?.removeEventListener('mouseup', onMouseUp)
-      cont?.removeEventListener('mousemove', onMouseMove);
-    }
+      titleBar.current?.removeEventListener('mousedown', onDown)
 
-    return cleanup;
+      window.current?.removeEventListener('mousemove', onDrag);
+
+      titleBar.current?.removeEventListener('mouseup', onUp)
+
+      //titleBar.current?.removeEventListener('mousemove', onUp)
+    }
+    
+    return cleanup
   }, []);
 
   return (
-    <div ref={container} style={{width: '100%', height: '100%'}}>
-      <div ref={window} className={styles.window}>
+    <div ref={window} className={styles.window} style={{transform: 'translateX(100px) translateY(100px)'}}>
         <div ref={titleBar} className={styles.titleBar}>
           <div className={styles.titleBarText}>{title}</div>
           <div className={styles.titleBarControls}>
@@ -79,7 +77,6 @@ export default function Window ({title}: WindowProps) {
             <button className={styles.close}></button>
           </div>
         </div>
-      </div>
     </div>
   )
 }
