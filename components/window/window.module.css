@@ -11,6 +11,20 @@
   resize: both;
 }
 
+.fullWindow {
+  background-color: rgb(236, 233, 216);
+  position: absolute;
+  box-shadow: inset -1px -1px #00138c, inset 1px 1px #0831d9, inset -2px -2px #001ea0, inset 2px 2px #166aee, inset -3px -3px #003bda, inset 3px 3px #0855dd;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0 0 3px;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%!important;
+  height: 100%!important;
+}
+
 .titleBar {
   background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
   padding: 3px 5px 3px 3px;
@@ -25,6 +39,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  user-select: none;
 }
 
 .titleBarText {
