@@ -5,8 +5,8 @@ import Window from '@/components/window/window'
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Window title='1'/>
-      <Window title='2'/>
+      <Window title='Обо мне'/>
+      <Window title='FutHelper'/>
     </main>
   )
 }
