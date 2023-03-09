@@ -4,6 +4,7 @@ import styles from './window.module.css'
 import { useState, useRef, useEffect } from "react"
 import React from 'react'
 
+
 type WindowProps = {
   title: string
 }
@@ -14,6 +15,7 @@ export default function Window ({title}: WindowProps) {
   const [leftW, setLeft] = useState(100);
   const [widthW, setWidth] = useState(400)
   const [heightW, setHeight] = useState(800)
+  const [itsMinimized, setItsMinimized] = useState(false);
   
   const windows = useRef<HTMLDivElement>(null);
   const titleBar = useRef<HTMLDivElement>(null);
