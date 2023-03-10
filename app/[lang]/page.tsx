@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import Window from '@/components/window/window'
 import { getDictionary } from './dictionaries';
 import Link from 'next/link';
+import Taskbar from '@/components/taskbar/taskbar';
 
 type Props = {
   params: {
@@ -11,14 +12,13 @@ type Props = {
   searchParams: object,
 }
 
-export default async function Home( props: Props) {
+export default async function Home( props: Props ) {
   const dict = await getDictionary(props.params.lang);
   
   return (
     <main className={styles.main}>
       <Window title={dict.title}/>
-      <Link href='/en' >EN</Link>
-      <Link href='/ru' >RU</Link>
+      <Taskbar lang={props.params.lang}/>
     </main>
   )
 }

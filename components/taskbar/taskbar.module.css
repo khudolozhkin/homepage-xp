@@ -1,0 +1,97 @@
+.container {
+  height: 40px;
+  width: 100vw;
+  position: absolute;
+  z-index: 1111;
+  bottom: 0;
+  background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
+} 
+
+.start {
+  width: 125px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  box-shadow: none;
+  background-color: transparent;
+  transition: background .1s;
+  border: none; 
+  padding: 0;
+}
+
+.wallpaper {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.langs {
+  width: 25px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  padding: auto;
+  height: 100%;
+  color: white;
+  user-select: none;
+  transition: 0.1s;
+  padding-left: 5px;
+  border-radius: 3px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
+.langs:hover {
+  background-color: rgba(256, 256, 256, 0.2);
+  box-shadow: inset -2px -2px 1px 2px rgb(0 0 0 / 14%), inset 2px 3px 2px 2px rgb(255 255 255 / 14%), inset 2px 2px 2px 2px rgb(255 255 255 / 14%);
+}
+
+.choiceLang {
+  background-color: rgb(236, 233, 216);
+  position: absolute;
+  width: 130px;
+  height: 60px;
+  top: -55px;
+  right: 30px;
+}
+
+.link {
+  color: rgb(34,34,34);
+  text-decoration: none;
+}
+
+.linkSelect {
+  color: rgb(34,34,34);
+  text-decoration: none;
+}
+
+.linkSelect:before {
+  color: rgb(34,34,34);
+  content: "✓";
+  width: 10px;
+  margin-right: 2px;
+  height: 10px;
+}
+
+.li {
+  list-style-type: none;
+  height: 30px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.li:hover {
+  background-color:rgba(49, 120, 220, 0.351);
+  border: 1px solid #0050ee;
+}

@@ -11,8 +11,6 @@ export async function middleware(req: NextRequest) {
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`${locale}`) && pathname !== `${locale}` 
   )
-
-  console.log(pathnameIsMissingLocale)
   
   if (pathnameIsMissingLocale) {
     const locale = getLocale(req)
@@ -24,7 +22,7 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!assets|_next/static|api).*)',
+    '/((?!assets|_next/|api).*)',
     '/'
   ],
 }

@@ -13,8 +13,8 @@ export default function Window ({title}: WindowProps) {
   const [fullScreen, setFullScreen] = useState(false);
   const [topW, setTop] = useState(100);
   const [leftW, setLeft] = useState(100);
-  const [widthW, setWidth] = useState(400)
-  const [heightW, setHeight] = useState(800)
+  const [widthW, setWidth] = useState(500)
+  const [heightW, setHeight] = useState(550)
   const [itsMinimized, setItsMinimized] = useState(false);
   
   const windows = useRef<HTMLDivElement>(null);
@@ -78,7 +78,7 @@ export default function Window ({title}: WindowProps) {
       //setLeft(left);
       //setTop(top);
 
-      if (e.y < 20 || e.x < 20 || e.y > (window.innerHeight - 20) || e.x > (window.innerWidth - 20)) { 
+      if (e.y < 20 || e.x < 20 || e.y > (window.innerHeight - 60) || e.x > (window.innerWidth - 20)) { 
         setFullScreen(true);
         onUp();
         setTop(100);
@@ -118,7 +118,9 @@ export default function Window ({title}: WindowProps) {
       const dx = e.clientX - x;
       x = e.clientX;
       width = width + dx;
-      windows.current!.style.width = `${width}px`;
+      if (width >= 500) {windows.current!.style.width = `${width}px`;} else {
+        width = 500
+      }
     };
 
     const onMouseUpRightResize = (e: MouseEvent) => {
@@ -140,7 +142,9 @@ export default function Window ({title}: WindowProps) {
       const dy = e.clientY - y;
       height = height + dy;
       y = e.clientY;
-      windows.current!.style.height = `${height}px`;
+      if (height >= 500) {windows.current!.style.height = `${height}px`;} else {
+        height = 500
+      }
     };
 
     const onMouseUpBottomResize = (e: MouseEvent) => {
@@ -161,9 +165,13 @@ export default function Window ({title}: WindowProps) {
       const dx = e.clientX - x;
       x = e.clientX;
       width = width - dx;
-      windows.current!.style.width = `${width}px`;
-      left = left + e.movementX;
-      windows.current!.style.transform = `translateX(${left + e.movementX}px) translateY(${top}px)`
+      if (width >= 500) {
+        windows.current!.style.width = `${width}px`;
+        left = left + e.movementX;
+        windows.current!.style.transform = `translateX(${left + e.movementX}px) translateY(${top}px)`
+      } else {
+        width = 500;
+      }
     };
 
     const onMouseUpLeftResize = (e: MouseEvent) => {
@@ -183,9 +191,13 @@ export default function Window ({title}: WindowProps) {
       const dy = e.clientY - y;
       height = height - dy;
       y = e.clientY;
-      windows.current!.style.height = `${height}px`;
-      top = top + e.movementY;
-      windows.current!.style.transform = `translateX(${left}px) translateY(${top + e.movementY}px)`
+      if (height >= 500) {
+        windows.current!.style.height = `${height}px`;
+        top = top + e.movementY;
+        windows.current!.style.transform = `translateX(${left}px) translateY(${top + e.movementY}px)`
+      } else {
+        height = 500;
+      }
     };
 
     const onMouseUpTopResize = (e: MouseEvent) => {
@@ -213,7 +225,7 @@ export default function Window ({title}: WindowProps) {
   }, []);
 
   return (
-    <div ref={windows} className={fullScreen ? styles.fullWindow : styles.window} style={fullScreen ? {} : {zIndex: 1, width: `${widthW}px`, height: `${widthW}px`, transform: `translateX(${leftW}px) translateY(${topW}px)`}}>
+    <div ref={windows} className={fullScreen ? styles.fullWindow : styles.window} style={fullScreen ? {} : {zIndex: 1, width: `${widthW}px`, height: `${heightW}px`, transform: `translateX(${leftW}px) translateY(${topW}px)`}}>
         <div ref={topRef} className={styles.top}></div>
         <div ref={leftRef} className={styles.left}></div>
         <div ref={right} className={styles.right}></div>
