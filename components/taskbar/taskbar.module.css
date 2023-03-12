@@ -1,3 +1,36 @@
+.leftPart {
+  display: flex;
+}
+
+.button {
+  min-width: 180px;
+  margin-right: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: linear-gradient(90deg,rgb(54,124,226),rgb(54,124,226) 5%,rgb(54,124,226) 88%,rgb(54,124,226) 93%,rgb(54,124,226) 95%,rgb(54,124,226) 98%,rgb(54,124,226));
+  border-radius: 5px;
+  border: 1px solid #3565d9;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  user-select: none;
+}
+
+.buttonActive {
+  min-width: 180px;
+  margin-right: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: linear-gradient(180deg,#1508c9,#0018ee 8%,#001bee 40%,#002bff 88%,#002bff 93%,#002bff 95%,#0018ee 96%,#0018ee);
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  user-select: none;
+}
+
 .container {
   height: 40px;
   width: 100vw;

@@ -178,3 +178,19 @@
 .bottom:hover {
   cursor: s-resize;
 }
+
+.content {
+  overflow: auto;
+  height: calc(100% - 28px);
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.minimizeContainer {
+  transition: 0.3s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}

@@ -4,11 +4,11 @@ import styles from './taskbar.module.css'
 import Link from 'next/link'
 import {useRef, useEffect, useState} from 'react'
 
-type ChoiceLangProps = {
+type taskProps = {
   lang: string
 }
 
-export default function LangChange( {lang}: ChoiceLangProps ) {
+export default function LangChange({lang}: taskProps ) {
   const [dropMenu, setDropMenu] = useState(false)
   const menu = useRef<any>(null);
 

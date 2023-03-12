@@ -1,13 +1,14 @@
 'use client'
 
 import styles from './window.module.css'
-import { useState, useRef, useEffect, useContext } from "react"
+import { useState, useRef, useEffect, useContext, Children } from "react"
 import { WindowsContext } from '@/context/windows-context'
 
 
 type WindowProps = {
   title: string,
-  id: string
+  id: string,
+  children: React.ReactNode
 }
 
 type WindowsContext =  {
@@ -16,14 +17,15 @@ type WindowsContext =  {
     }
   }
 
-export default function Window ({title, id}: WindowProps) {
+export default function Window ({title, id, children}: WindowProps) {
   const windowsContext = useContext<any>(WindowsContext);
-  const [fullScreen, setFullScreen] = useState(Boolean(parseInt(windowsContext.context.windows[id].fullScreen)));
+  const [fullScreen, setFullScreen] = useState(windowsContext.context.windows[id].fullScreen);
   const [topW, setTop] = useState(parseInt(windowsContext.context.windows[id].top));
   const [leftW, setLeft] = useState(parseInt(windowsContext.context.windows[id].left));
   const [widthW, setWidth] = useState(windowsContext.context.windows[id].width)
   const [heightW, setHeight] = useState(windowsContext.context.windows[id].height)
-  const [itsMinimized, setItsMinimized] = useState(false);
+  const [zIndexW, setZIndexW] = useState(windowsContext.context.windows[id].zIndex)
+
   
   const windows = useRef<HTMLDivElement>(null);
   const titleBar = useRef<HTMLDivElement>(null);
@@ -39,11 +41,56 @@ export default function Window ({title, id}: WindowProps) {
   let x = 0;
   let y = 0;
 
-  function updContextDrag(id:string, context:any, top: number, left:number) {
+  function updClose(id:string) {
+    let newContext:any = windowsContext.context;
+    for (var window in newContext.windows) {
+      if (window = id) {
+        newContext.windows[id].isClose = 1;
+
+        windowsContext.setContext({"windows" : newContext.windows});
+      }
+    }
+  }
+
+  function updMinimize(id: string) {
+    let newContext:any = windowsContext.context;
+    for (var window in newContext.windows) {
+      if (window = id) {
+        newContext.windows[id].isMinimize = 1;
+        windowsContext.setContext({"windows" : newContext.windows});
+      }
+    }
+  }
+
+  function updContextResize(id:string, context:any, left:any = true, top:any = true) {
     let newContext:any = context;
     for (var window in newContext.windows) {
       if (window = id) {
-        newContext.windows[window].fullScreen = '0';
+        if(windows.current != null) {
+          
+          if (top == true) {
+            newContext.windows[window].width = parseInt(windows.current!.style.width);
+            newContext.windows[window].height = parseInt(windows.current!.style.height);
+          } else {
+            newContext.windows[window].width = parseInt(windows.current!.style.width);
+            newContext.windows[window].height = parseInt(windows.current!.style.height);
+            newContext.windows[window].top = top;
+            newContext.windows[window].left = left;
+          }
+        }
+        
+        windowsContext.setContext({"windows" : newContext.windows});
+      }
+    }
+  }
+
+  function updContextDrag(id:string, context:any, top: number, left:number) {
+    let newContext:any = context;
+    for (var window in newContext.windows) {
+      newContext.windows[window].zIndex = 1;
+      if (window = id) {
+        newContext.windows[window].zIndex = 5;
+        newContext.windows[window].fullScreen = false;
 
         newContext.windows[window].top = top;
         newContext.windows[window].left = left;
@@ -55,7 +102,7 @@ export default function Window ({title, id}: WindowProps) {
           newContext.windows[window].height = parseInt(windows.current!.style.height);
           newContext.windows[window].width = parseInt(windows.current!.style.width);
         }
-        
+
         windowsContext.setContext({"windows" : newContext.windows});
       }
     }
@@ -66,9 +113,9 @@ export default function Window ({title, id}: WindowProps) {
     for (var window in newContext.windows) {
       if (window = id) {
         if(fullScreen) {
-          newContext.windows[window].fullScreen = "1";
+          newContext.windows[window].fullScreen = true;
         } else {
-          newContext.windows[window].fullScreen = "0";
+          newContext.windows[window].fullScreen = false;
         }
         windowsContext.setContext({"windows" : newContext.windows});
         setFullScreen(fullScreen)
@@ -106,7 +153,7 @@ export default function Window ({title, id}: WindowProps) {
       if (!isClicked || windows.current!.style.width == '') return;
       top = top + e.movementY;
       left = left + e.movementX;
-      windows.current!.style.zIndex = '10'
+      windows.current!.style.zIndex = '10';
       windows.current!.style.transform = `translateX(${left + e.movementX}px) translateY(${top + e.movementY}px)`
       if (e.y < 20 || e.x < 20 || e.y > (window.innerHeight - 60) || e.x > (window.innerWidth - 20)) { 
         maximize.current?.click()
@@ -119,15 +166,17 @@ export default function Window ({title, id}: WindowProps) {
 
     const onUp = () => {
       isClicked = false;
-      windows.current!.style.zIndex = '1'
       setLeft(left);
       setTop(top);
+      setZIndexW(windowsContext.context.windows[id].zIndex);
       updContextDrag(id, windowsContext.context, top, left)
     }
 
     titleBar.current?.addEventListener('mousedown', onDown)
     windows.current?.addEventListener('mousemove', onDrag);
     titleBar.current?.addEventListener('mouseup', onUp)
+
+    // right resize
 
     const onMouseMoveRightResize = (e: MouseEvent) => {
       const dx = e.clientX - x;
@@ -145,6 +194,7 @@ export default function Window ({title, id}: WindowProps) {
 
     const onMouseUpRightResize = (e: MouseEvent) => {
       document.removeEventListener("mousemove", onMouseMoveRightResize);
+      updContextResize(id, windowsContext.context)
     };
     
     const onMouseDownRightResize = (e: MouseEvent) => {
@@ -173,6 +223,7 @@ export default function Window ({title, id}: WindowProps) {
 
     const onMouseUpBottomResize = (e: MouseEvent) => {
       document.removeEventListener("mousemove", onMouseMoveBottomResize);
+      updContextResize(id, windowsContext.context)
     };
 
     const onMouseDownBottomResize = (e: MouseEvent) => {
@@ -195,6 +246,7 @@ export default function Window ({title, id}: WindowProps) {
         windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
         setWidth(width)
         setLeft(left)
+        updContextResize(id, windowsContext.context, left, top);
       } 
       else 
       {
@@ -226,6 +278,7 @@ export default function Window ({title, id}: WindowProps) {
         windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
         setTop(top)
         setHeight(height)
+        updContextResize(id, windowsContext.context, left, top);
       } 
       else
       {
@@ -256,19 +309,22 @@ export default function Window ({title, id}: WindowProps) {
 
 
   return (
-    <div ref={windows} className={fullScreen ? styles.fullWindow : styles.window} style={fullScreen ? {} : {zIndex: 1, width: `${widthW}px`, height: `${heightW}px`, transform: `translateX(${leftW}px) translateY(${topW}px)`}}>
-        <div ref={topRef} className={styles.top}></div>
-        <div ref={leftRef} className={styles.left}></div>
-        <div ref={right} className={styles.right}></div>
-        <div ref={bottom} className={styles.bottom}></div>
-        <div ref={titleBar} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.titleBar}>
-          <div className={styles.titleBarText}>{title}</div>
-          <div className={styles.titleBarControls} style={{pointerEvents: 'all'}}>
-            <button className={styles.minimize}></button>
-            <button className={styles.maximize} ref={maximize} onClick={() => makeFullScreen()}></button>
-            <button className={styles.close}></button>
+      <div ref={windows} className={fullScreen ? styles.fullWindow : styles.window} style={fullScreen ? {} : {zIndex: windowsContext.context.windows[id].zIndex, width: `${widthW}px`, height: `${heightW}px`, transform: `translateX(${leftW}px) translateY(${topW}px)`}}>
+          <div ref={topRef} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.top}></div>
+          <div ref={leftRef} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.left}></div>
+          <div ref={right} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.right}></div>
+          <div ref={bottom} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.bottom}></div>
+          <div ref={titleBar} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.titleBar}>
+            <div className={styles.titleBarText}>{title}</div>
+            <div className={styles.titleBarControls} style={{pointerEvents: 'all'}}>
+              <button className={styles.minimize} onClick={() => {updMinimize(id)}}></button>
+              <button className={styles.maximize} ref={maximize} onClick={() => makeFullScreen()}></button>
+              <button className={styles.close} onClick={() => {updClose(id)}}></button>
+            </div>
           </div>
-        </div>
-    </div>
-  )
+          <div className={styles.content}>
+            {children}
+          </div>
+      </div>
+    )
 }

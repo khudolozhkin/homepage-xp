@@ -2,20 +2,26 @@
   "windows": {
     "id1": {
       "id": 1,
-      "top": "100",
-      "left": "100",
-      "width": "600",
-      "height": "800",
-      "fullScreen": "0",
+      "top": 100,
+      "left": 100,
+      "width": 600,
+      "height": 800,
+      "fullScreen": false,
+      "zIndex": 1,
+      "isClose": true,
+      "isMinimize": false,
       "icon": "assets/some-icon.png"
     },
     "id2": {
       "id": 2,
-      "top": "100",
-      "left": "222",
-      "width": "900",
-      "height": "1000",
-      "fullScreen": "0",
+      "top": 100,
+      "left": 222,
+      "width": 900,
+      "height": 1000,
+      "fullScreen": false,
+      "zIndex": 1,
+      "isClose": true,
+      "isMinimize": false,
       "icon": "assets/some-icon2.png"
     }
   }

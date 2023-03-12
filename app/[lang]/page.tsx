@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import styles from './page.module.css'
-import Window from '@/components/window/window'
-import { getDictionary } from './dictionaries';
+import Windows from '@/components/window/windows';
+import { getDictionary } from './dictionaries'
 import Link from 'next/link';
 import Taskbar from '@/components/taskbar/taskbar';
+import AboutMe from '@/components/about-me/about-me';
+import Labels from '@/components/window/labels';
 
 type Props = {
   params: {
@@ -14,12 +16,12 @@ type Props = {
 
 export default async function Home( props: Props ) {
   const dict = await getDictionary(props.params.lang);
-  
+
   return (
     <main className={styles.main}>
-      <Window title={dict.titles.id1} id='id1' />
-      <Window title={dict.titles.id2} id='id2' />
-      <Taskbar lang={props.params.lang}/>
+      <Windows lang={props.params.lang} dict={dict}/>
+      <Taskbar lang={props.params.lang} dict={dict}/>
+      <Labels dict={dict}/>
     </main>
   )
 }
