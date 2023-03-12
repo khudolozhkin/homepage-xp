@@ -1,3 +1,6 @@
 {
-  "title": "About me" 
+  "titles": {
+    "id1": "About Me",
+    "id2": "Projects"
+  }
 }

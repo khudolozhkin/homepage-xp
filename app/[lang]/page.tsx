@@ -17,7 +17,8 @@ export default async function Home( props: Props ) {
   
   return (
     <main className={styles.main}>
-      <Window title={dict.title}/>
+      <Window title={dict.titles.id1} id='id1' />
+      <Window title={dict.titles.id2} id='id2' />
       <Taskbar lang={props.params.lang}/>
     </main>
   )

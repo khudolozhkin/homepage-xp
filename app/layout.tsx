@@ -1,5 +1,6 @@
 import './globals.css'
 import localFont from 'next/font/local';
+import WindowsProvider from '@/context/windows-context';
 
 export const metadata = {
   title: 'Homepage XP',
@@ -18,9 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" className={myFont.className}>
-      <body>
-        {children}
-      </body>
+      <WindowsProvider>
+        <body>
+          {children}
+        </body>
+      </WindowsProvider>
     </html>
   )
 }
