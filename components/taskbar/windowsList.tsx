@@ -39,7 +39,10 @@ export default function WindowsList({dict}: WindowsListProps) {
     if (window.isClose) {
       return
     }
-    return <div className={ ( windowsContext.context.windows[`id${window.id}`].zIndex == 5 ) ? styles.buttonActive : styles.button} onClick={() => {updMinimize(`id${window.id}`)}} key={window.id}>{dict.titles[`id${window.id}`]}</div>;
+    return <div className={ ( windowsContext.context.windows[`id${window.id}`].zIndex == 5 ) ? styles.buttonActive : styles.button} onClick={() => {updMinimize(`id${window.id}`)}} key={window.id}>
+        <div className={styles.icon} style={{backgroundImage: `url('${windowsContext.context.windows[`id${window.id}`].icon}')`}}></div>
+        {dict.titles[`id${window.id}`]}
+      </div>;
  });
 
   return (

@@ -2,6 +2,13 @@
   display: flex;
 }
 
+.icon {
+  min-width: 21px;
+  min-height: 21px;
+  margin-right: 6px;
+  background-repeat: no-repeat;
+}
+
 .button {
   min-width: 180px;
   margin-right: 2px;

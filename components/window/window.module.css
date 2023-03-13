@@ -76,6 +76,14 @@
   background-image: url('/assets/minimize.svg');
 }
 
+.icon {
+  min-width: 21px;
+  min-height: 21px;
+  margin-left: 2px;
+  margin-right: 3px;
+  background-repeat: no-repeat;
+}
+
 .maximize {
   min-width: 21px;
   min-height: 21px;

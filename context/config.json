@@ -10,7 +10,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "assets/some-icon.png"
+      "icon": "/assets/maximize.svg"
     },
     "id2": {
       "id": 2,
@@ -22,7 +22,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "assets/some-icon2.png"
+      "icon": "/assets/minimize.svg"
     }
   }
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './labels.module.css'
-import { useContext } from 'react'
+import { useContext } from 'react'  
 import { WindowsContext } from '@/context/windows-context'
 
 type WindowsLabelsProps = {
@@ -41,7 +41,7 @@ export default function Labels({dict}: WindowsLabelsProps) {
   const windowsLabels = windowsArray.map((window:any) => {
     return ( 
       <div key={window.id} onClick={() => {updClose(`id${window.id}`)}} className={styles.label}>
-        <div className={styles.image}></div>
+        <div className={styles.image} style={{backgroundImage: `url(${window.icon})`}}></div>
         <div className={styles.title}>{dict.titles[`id${window.id}`]}</div>
       </div>
     )
