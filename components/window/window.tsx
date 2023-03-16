@@ -131,7 +131,7 @@ export default function Window ({title, id, children}: WindowProps) {
     const cleanup = () => {
       titleBar.current?.removeEventListener('mousedown', onDown)
 
-      windows.current?.removeEventListener('mousemove', onDrag);
+      document.removeEventListener('mousemove', onDrag);
 
       titleBar.current?.removeEventListener('mouseup', onUp)
 
@@ -148,20 +148,24 @@ export default function Window ({title, id, children}: WindowProps) {
     let height = parseInt(windows.current!.style.height, 10);
     let top = topW;
     let left = leftW;
+    let shiftX = 0;
+    let shiftY = 0;
 
-    const onDrag = (e: MouseEvent) => {
+    const onDrag = (e: any) => {
       if (!isClicked || windows.current!.style.width == '') return;
-      top = top + e.movementY;
-      left = left + e.movementX;
+      top = e.pageY - shiftY;
+      left = e.pageX - shiftX;
       windows.current!.style.zIndex = '10';
-      windows.current!.style.transform = `translateX(${left + e.movementX}px) translateY(${top + e.movementY}px)`
+      windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
       if (e.y < 20 || e.x < 20 || e.y > (window.innerHeight - 60) || e.x > (window.innerWidth - 20)) { 
         maximize.current?.click()
       }
     }
 
-    const onDown = () => {
+    const onDown = (e: any) => {
       isClicked = true;
+      shiftX = e.clientX - titleBar!.current!.getBoundingClientRect().left;
+      shiftY = e.clientY - titleBar!.current!.getBoundingClientRect().top;
     }
 
     const onUp = () => {
@@ -173,8 +177,9 @@ export default function Window ({title, id, children}: WindowProps) {
     }
 
     titleBar.current?.addEventListener('mousedown', onDown)
-    windows.current?.addEventListener('mousemove', onDrag);
+    document.addEventListener('mousemove', onDrag);
     titleBar.current?.addEventListener('mouseup', onUp)
+
 
     // right resize
 
@@ -242,7 +247,7 @@ export default function Window ({title, id, children}: WindowProps) {
       width = width - dx;
       if (width >= 500) {
         windows.current!.style.width = `${width}px`;
-        left = left + e.movementX;
+        left = e.pageX - shiftX;
         windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
         setWidth(width)
         setLeft(left)
@@ -262,6 +267,7 @@ export default function Window ({title, id, children}: WindowProps) {
       x = e.clientX;
       windows.current!.style.right = windows.current!.style.right;
       windows.current!.style.left = '';
+      shiftX = e.clientX - windows!.current!.getBoundingClientRect().left;
       document.addEventListener("mousemove", onMouseMoveLeftResize);
       document.addEventListener("mouseup", onMouseUpLeftResize);
     };
@@ -274,7 +280,7 @@ export default function Window ({title, id, children}: WindowProps) {
       y = e.clientY;
       if (height >= 500) {
         windows.current!.style.height = `${height}px`;
-        top = top + e.movementY;
+        top = e.pageY - shiftY;
         windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
         setTop(top)
         setHeight(height)
@@ -295,6 +301,7 @@ export default function Window ({title, id, children}: WindowProps) {
       const styles = (windows?.current!.style);
       windows.current!.style.bottom = styles.bottom;
       windows.current!.style.bottom = '';
+      shiftY = e.clientY - titleBar!.current!.getBoundingClientRect().top;
       document.addEventListener("mousemove", onMouseMoveTopResize);
       document.addEventListener("mouseup", onMouseUpTopResize);
     };

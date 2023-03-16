@@ -5,6 +5,7 @@ import WindowsProvider from '@/context/windows-context';
 export const metadata = {
   title: 'Homepage XP',
   description: 'Homepage XP',
+  viewport: 'width=device-width, user-scalable=no'
 }
 
 const myFont = localFont({
