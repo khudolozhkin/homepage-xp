@@ -24,6 +24,7 @@
 
 .label:hover {
   background-color: rgba(31, 120, 245, 0.741);
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .title {

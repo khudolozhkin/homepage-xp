@@ -22,6 +22,7 @@
   align-items: center;
   padding-left: 15px;
   user-select: none;
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .buttonActive {
@@ -36,6 +37,7 @@
   align-items: center;
   padding-left: 15px;
   user-select: none;
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .container {
@@ -57,6 +59,10 @@
   transition: background .1s;
   border: none; 
   padding: 0;
+}
+
+.start:hover {
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .wallpaper {
@@ -90,6 +96,7 @@
 }
 
 .langs:hover {
+  cursor: url('/assets/cursor-pointer.png'), pointer;
   background-color: rgba(256, 256, 256, 0.2);
   box-shadow: inset -2px -2px 1px 2px rgb(0 0 0 / 14%), inset 2px 3px 2px 2px rgb(255 255 255 / 14%), inset 2px 2px 2px 2px rgb(255 255 255 / 14%);
 }
@@ -106,11 +113,13 @@
 .link {
   color: rgb(34,34,34);
   text-decoration: none;
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .linkSelect {
   color: rgb(34,34,34);
   text-decoration: none;
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .linkSelect:before {
@@ -119,6 +128,7 @@
   width: 10px;
   margin-right: 2px;
   height: 10px;
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .li {
@@ -134,4 +144,5 @@
 .li:hover {
   background-color:rgba(49, 120, 220, 0.351);
   border: 1px solid #0050ee;
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }

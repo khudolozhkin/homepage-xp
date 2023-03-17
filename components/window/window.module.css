@@ -114,6 +114,7 @@
 
 .close:hover {
   background-image: url('/assets/close-hover.svg');
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .close:active {
@@ -122,6 +123,7 @@
 
 .maximize:hover {
   background-image: url('/assets/maximize-hover.svg');
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .maximize:active {
@@ -130,6 +132,7 @@
 
 .minimize:hover {
   background-image: url('/assets/minimize-hover.svg');
+  cursor: url('/assets/cursor-pointer.png'), pointer;
 }
 
 .minimize:active {
@@ -188,11 +191,11 @@
 }
 
 .content {
-  overflow: auto;
   height: calc(100% - 28px);
   margin-left: 3px;
   margin-right: 3px;
 }
+
 
 .minimizeContainer {
   transition: 0.3s;
