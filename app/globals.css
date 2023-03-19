@@ -44,19 +44,23 @@ body {
 
 ::-webkit-scrollbar-button:vertical:start {
   background-image: url('/assets/scroll-arrow-up.svg');
+  background-repeat: no-repeat;
+  height: 17px;
 }
 
 ::-webkit-scrollbar-button:vertical:end {
   background-image: url('/assets/scroll-arrow-down.svg');
+  background-repeat: no-repeat;
+  height: 17px;
 }
 
 ::-webkit-scrollbar-button:horizontal:start {
-  width: 17px;
+  height: 17px;
   background-image: url("/assets/scroll-arrow-left.svg");
 }
 
 ::-webkit-scrollbar-button:horizontal:end {
-  width: 17px;
+  height: 17px;
   background-image: url("/assets/scroll-arrow-right.svg");
 }
 

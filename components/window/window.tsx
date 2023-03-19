@@ -142,6 +142,8 @@ export default function Window ({title, id, children}: WindowProps) {
       leftRef.current?.removeEventListener("mousedown", onMouseDownLeftResize);
 
       topRef.current?.removeEventListener("mousedown", onMouseDownTopResize);
+      
+      windows.current?.removeEventListener('mousedown', mainIndex);
     }
 
     let width = parseInt(windows.current!.style.width, 10);
@@ -150,6 +152,11 @@ export default function Window ({title, id, children}: WindowProps) {
     let left = leftW;
     let shiftX = 0;
     let shiftY = 0;
+
+    const mainIndex = (e: any) => {
+      setZIndexW(windowsContext.context.windows[id].zIndex);
+      updContextDrag(id, windowsContext.context, top, left)
+    }
 
     const onDrag = (e: any) => {
       if (!isClicked || windows.current!.style.width == '') return;
@@ -179,6 +186,7 @@ export default function Window ({title, id, children}: WindowProps) {
     titleBar.current?.addEventListener('mousedown', onDown)
     document.addEventListener('mousemove', onDrag);
     titleBar.current?.addEventListener('mouseup', onUp)
+    windows.current?.addEventListener('mousedown', mainIndex)
 
 
     // right resize
