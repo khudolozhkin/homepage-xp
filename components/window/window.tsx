@@ -324,7 +324,7 @@ export default function Window ({title, id, children}: WindowProps) {
 
 
   return (
-      <div ref={windows} className={fullScreen ? styles.fullWindow : styles.window} style={fullScreen ? {} : {zIndex: windowsContext.context.windows[id].zIndex, width: `${widthW}px`, height: `${heightW}px`, transform: `translateX(${leftW}px) translateY(${topW}px)`}}>
+      <div ref={windows} className={fullScreen ? styles.fullWindow : styles.window} style={fullScreen ? {zIndex: windowsContext.context.windows[id].zIndex} : {zIndex: windowsContext.context.windows[id].zIndex, width: `${widthW}px`, height: `${heightW}px`, transform: `translateX(${leftW}px) translateY(${topW}px)`}}>
           <div ref={topRef} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.top}></div>
           <div ref={leftRef} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.left}></div>
           <div ref={right} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.right}></div>

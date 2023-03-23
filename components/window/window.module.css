@@ -21,7 +21,6 @@
   padding: 0 0 3px;
   top: 0;
   left: 0;
-  z-index: 100;
   width: 100%!important;
   height: calc(100% - 40px)!important;
   user-select: none;
