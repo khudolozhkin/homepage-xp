@@ -164,7 +164,15 @@ export default function Window ({title, id, children}: WindowProps) {
       left = e.pageX - shiftX;
       windows.current!.style.zIndex = '10';
       windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
-      if (e.y < 20 || e.x < 20 || e.y > (window.innerHeight - 60) || e.x > (window.innerWidth - 20)) { 
+      if (e.y < 20 || e.x < 20) { 
+        top += 50;
+        left += 50;
+        maximize.current?.click()
+      }
+
+      if (e.y > (window.innerHeight - 60) || e.x > (window.innerWidth - 20)) { 
+        top -= 50;
+        left -= 50;
         maximize.current?.click()
       }
     }

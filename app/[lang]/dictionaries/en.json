@@ -1,6 +1,16 @@
 {
   "titles": {
     "id1": "About Me",
-    "id2": "Works"
+    "id2": "Works",
+    "id3": "Posts",
+    "id4": "FutHelper",
+    "id5": "Need For Code",
+    "id6": "Code in Poke",
+    "id7": "Source"
+  },
+  "aboutMe": {
+    "name": "Khudolozhkin Alexander",
+    "about": "Hello, I'm an app developer based in Moscow!",
+    "work": "I work as a freelancer on app and video creation. I love everything about product launches, from planning and design to solving problems with code. Currently, I live by working as a video editor. In my free time, I work on my own product FutHelper."
   }
 }

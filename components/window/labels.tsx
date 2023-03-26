@@ -49,9 +49,7 @@ export default function Labels({dict}: WindowsLabelsProps) {
   
   return (
     <div className={styles.container}>
-      <div style={{display: 'flex', 'flexDirection': 'column', gap: '15px'}}>
-        {windowsLabels}
-      </div>
+      {windowsLabels}
     </div>
   )
 }

@@ -18,7 +18,7 @@ export default function Windows( {lang, dict}: taskProps ) {
   return (
     <>
       <WindowProvider id='id1'>
-          <Window title={dict.titles.id1} id='id1'><AboutMe lang={lang}/></Window>
+          <Window title={dict.titles.id1} id='id1'><AboutMe dict={dict} lang={lang}/></Window>
       </WindowProvider>
       
       <WindowProvider id='id2'>
