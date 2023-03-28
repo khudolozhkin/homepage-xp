@@ -24,6 +24,22 @@ export default function Windows( {lang, dict}: taskProps ) {
       <WindowProvider id='id2'>
           <Window title={dict.titles.id2} id='id2'> </Window>
       </WindowProvider>
+
+      <WindowProvider id='id3'>
+          <Window title={dict.titles.id3} id='id3'> </Window>
+      </WindowProvider>
+
+      <WindowProvider id='id4'>
+          <Window title={dict.titles.id4} id='id4'> </Window>
+      </WindowProvider>
+
+      <WindowProvider id='id5'>
+          <Window title={dict.titles.id5} id='id5'> </Window>
+      </WindowProvider>
+
+      <WindowProvider id='id6'>
+          <Window title={dict.titles.id6} id='id6'> </Window>
+      </WindowProvider>
     </>
   )
 }

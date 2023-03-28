@@ -6,11 +6,14 @@
     "id4": "FutHelper",
     "id5": "Need For Code",
     "id6": "Code in Poke",
-    "id7": "Source"
+    "source": "Source"
   },
   "aboutMe": {
     "name": "Khudolozhkin Alexander",
     "about": "Hello, I'm an app developer based in Moscow!",
-    "work": "I work as a freelancer on app and video creation. I love everything about product launches, from planning and design to solving problems with code. Currently, I live by working as a video editor. In my free time, I work on my own product FutHelper."
+    "work": "I work as a freelancer on app and video creation. I love everything about product launches, from planning and design to solving problems with code. Currently, I live by working as a video editor. In my free time, I work on my own product",
+    "2003": "Born in Volzhsky, Russia",
+    "2020": "Started working as a freelancer",
+    "2021": "Enrolled in NUST MISiS on “Computer Science and Engineering”"
   }
 }

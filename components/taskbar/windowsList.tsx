@@ -47,8 +47,14 @@ export default function WindowsList({dict}: WindowsListProps) {
 
   return (
     <>
-      <ul style={{display: 'contents'}}>
-        {windowsList}
+      <ul style={{
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'row',
+        margin: '0 0 0 0',
+        padding: '0 0 0 0'
+      }}>
+          {windowsList}
       </ul>
     </>
   )

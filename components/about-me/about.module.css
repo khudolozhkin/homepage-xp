@@ -91,3 +91,48 @@
   -ms-hyphens: auto;
   hyphens: auto;
 }
+
+.bounce_me {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  60% {
+    transform: translate(0px, -10px);
+  }
+}
+
+.bounceDiv {
+  text-shadow: 0 0 12px hsl(0deg 0% 100% / 96%);
+  font-size: 2rem;
+}
+
+.portfolio {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.bioDiv {
+  padding-left: 3.4em;
+  text-indent: -3.4em;
+}
+
+.bioYear {
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.windowLink {
+  color: #8923f0;
+  text-decoration-thickness: 4px;
+}
+
+.windowLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #8923f0;
+}

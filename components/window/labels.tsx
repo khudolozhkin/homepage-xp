@@ -15,8 +15,8 @@ export default function Labels({dict}: WindowsLabelsProps) {
   function updClose(id: string) {
     if (windowsContext.context.windows[id].isClose) {
       let newContext:any = windowsContext.context;
-      for (var window in newContext.windows) {
-        if (window = id) {
+      for (var windowC in newContext.windows) {
+        if (windowC = id) {
           newContext.windows[id].isClose = false;
           windowsContext.setContext({"windows" : newContext.windows});
         }
@@ -24,8 +24,8 @@ export default function Labels({dict}: WindowsLabelsProps) {
     } else {
       if (windowsContext.context.windows[id].isMinimize) {
         let newContext:any = windowsContext.context;
-        for (var window in newContext.windows) {
-          if (window = id) {
+        for (var windowC in newContext.windows) {
+          if (windowC = id) {
             newContext.windows[id].isMinimize = false;
             windowsContext.setContext({"windows" : newContext.windows});
           }
@@ -34,8 +34,8 @@ export default function Labels({dict}: WindowsLabelsProps) {
     }
   }
 
-  for (var window in windowsContext.context.windows) {
-    windowsArray.push(windowsContext.context.windows[window])
+  for (var windowC in windowsContext.context.windows) {
+    windowsArray.push(windowsContext.context.windows[windowC])
   }
 
   const windowsLabels = windowsArray.map((window:any) => {
@@ -50,6 +50,10 @@ export default function Labels({dict}: WindowsLabelsProps) {
   return (
     <div className={styles.container}>
       {windowsLabels}
+      <div onClick={() => {window.open('https://github.com/Halatnbly/homepage-xp', '_blank')}} className={styles.label}>
+        <div className={styles.image} style={{backgroundImage: `url(assets/hand.gif)`}}></div>
+        <div className={styles.title}>{dict.titles.source}</div>
+      </div>
     </div>
   )
 }

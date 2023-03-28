@@ -5,7 +5,7 @@ import { WindowsContext } from '@/context/windows-context';
 
 export default function WindowProvider({ children, id }: { children: React.ReactNode, id: string }) {
   const windowsContext = useContext<any>(WindowsContext);
-
+  
   return (
     <>
       <div style={ windowsContext.context.windows[id].isClose ? {display: 'none'} : {display: 'block'}}>
