@@ -10,7 +10,8 @@
 }
 
 .button {
-  /* min-width: 180px; */
+  flex-basis: 180px;
+  min-width: 40px;
   margin-right: 2px;
   padding-right: 15px;
   margin-top: 4px;
@@ -25,10 +26,12 @@
   padding-left: 15px;
   user-select: none;
   cursor: url('/assets/cursor-pointer.png'), pointer;
+  text-overflow: ellipsis;
 }
 
 .buttonActive {
-  /* min-width: 180px; */
+  flex-basis: 180px;
+  min-width: 40px;
   margin-right: 2px;
   margin-top: 4px;
   padding-right: 15px;
@@ -42,6 +45,7 @@
   padding-left: 15px;
   user-select: none;
   cursor: url('/assets/cursor-pointer.png'), pointer;
+  text-overflow: ellipsis;
 }
 
 .container {
@@ -149,4 +153,13 @@
   background-color:rgba(49, 120, 220, 0.351);
   border: 1px solid #0050ee;
   cursor: url('/assets/cursor-pointer.png'), pointer;
+}
+
+.p {
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  padding: 5px; /* Поля вокруг текста */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }

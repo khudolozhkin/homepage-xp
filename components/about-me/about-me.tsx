@@ -61,7 +61,59 @@ export default function AboutMe({dict, lang}: AboutMeProps) {
           </div>
           <div className={styles.onTheWeb}>
             <h3 className={styles.paragraph} style={{fontSize: '20px', fontWeight: '600'}}>{itsRu ? 'В интеренте' : 'On the web'}</h3>
+            <ul className={styles.onTheWebUl}>
+              
+              <li className={styles.onTheWebLi}>
+                <a className={styles.onTheWebA} target="_blank" href="https://t.me/fredryx">
+                  <button className={styles.onTheWebButton}>
+                    <span className={styles.onTheWebSpan}>
+                      <Image style={{marginRight: '1rem'}} className={styles.onTheWebImage} src={`/assets/telegram.svg`} width={16} height={16} alt='Telegram'/>
+                    </span>
+                    <text className={styles.onTheWebLink}>
+                    @fredryx
+                    </text>
+                  </button>
+                </a>
+              </li>
+
+              <li className={styles.onTheWebLi}>
+                <a className={styles.onTheWebA} target="_blank" href="https://github.com/halatnbly">
+                  <button className={styles.onTheWebButton}>
+                    <span className={styles.onTheWebSpan}>
+                      <Image style={{marginRight: '1rem'}} className={styles.onTheWebImage} src={`/assets/github.svg`} width={16} height={16} alt='Telegram'/>
+                    </span>
+                    <text className={styles.onTheWebLink}>
+                    @halatnbly
+                    </text>
+                  </button>
+                </a>
+              </li>
+
+              <li className={styles.onTheWebLi}>
+                <a className={styles.onTheWebA} target="_blank" href="mailto:ahuddmt@gmail.com">
+                  <button className={styles.onTheWebButton}>
+                    <span className={styles.onTheWebSpan}>
+                      <Image style={{marginRight: '1rem'}} className={styles.onTheWebImage} src={`/assets/gmail.svg`} width={16} height={16} alt='Telegram'/>
+                    </span>
+                    <text className={styles.onTheWebLink}>
+                    ahuddmt@gmail.com
+                    </text>
+                  </button>
+                </a>
+              </li>
+            </ul>
           </div>
+
+          <div className={styles.congrats}>
+            <img src='assets/fireworks.gif' className={styles.fireworks}/>
+            <p style={{textAlign: 'center'}}>
+              {dict.aboutMe.congrats[1]}
+              <img src='assets/numbers.gif' className={styles.numbers}/>
+              {dict.aboutMe.congrats[2]}
+            </p>
+            <img src='assets/fireworks.gif' className={styles.fireworks}/>
+          </div>
+
         </div>
       </div>
     </div>

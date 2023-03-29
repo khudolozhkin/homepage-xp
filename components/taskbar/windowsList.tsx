@@ -40,8 +40,12 @@ export default function WindowsList({dict}: WindowsListProps) {
       return
     }
     return <div className={ ( windowsContext.context.windows[`id${window.id}`].zIndex == 5 ) ? styles.buttonActive : styles.button} onClick={() => {updMinimize(`id${window.id}`)}} key={window.id}>
-        <div className={styles.icon} style={{backgroundImage: `url('${windowsContext.context.windows[`id${window.id}`].icon}')`}}></div>
-        {dict.titles[`id${window.id}`]}
+        <div className={styles.icon} style={{
+          backgroundImage: `url('${windowsContext.context.windows[`id${window.id}`].icon}')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain'
+          }}></div>
+        <p className={styles.p} >{dict.titles[`id${window.id}`]}</p>
       </div>;
  });
 
@@ -52,7 +56,8 @@ export default function WindowsList({dict}: WindowsListProps) {
         alignItems: 'center',
         flexDirection: 'row',
         margin: '0 0 0 0',
-        padding: '0 0 0 0'
+        padding: '0 0 0 0',
+        width: 'calc(100vw - 125px - 62px)'
       }}>
           {windowsList}
       </ul>

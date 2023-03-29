@@ -339,7 +339,7 @@ export default function Window ({title, id, children}: WindowProps) {
           <div ref={bottom} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.bottom}></div>
           <div ref={titleBar} style={fullScreen ? {pointerEvents: 'none'} : {pointerEvents: 'all'}} className={styles.titleBar}>
             <div style={{display: 'flex', alignItems: 'center'}}>
-              <div className={styles.icon} style={{backgroundImage: `url('${windowsContext.context.windows[id].icon}')`}}></div>
+              <div className={styles.icon} style={{backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundImage: `url('${windowsContext.context.windows[id].icon}')`}}></div>
               <div className={styles.titleBarText}>{title}</div>
             </div>
             <div className={styles.titleBarControls} style={{pointerEvents: 'all'}}>

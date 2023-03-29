@@ -128,6 +128,7 @@
 .windowLink {
   color: #8923f0;
   text-decoration-thickness: 4px;
+  font-weight: 600;
 }
 
 .windowLink:hover {
@@ -135,4 +136,89 @@
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-color: #8923f0;
+}
+
+.onTheWebUl {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 1rem;
+}
+
+.onTheWebA {
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.onTheWebButton:hover {
+  background-color: #8923f03f;
+  backdrop-filter: blur(1px);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  -webkit-text-decoration-color: #c993ff;
+  text-decoration-color: #c993ff;
+  text-decoration-thickness: 2px;
+}
+
+.onTheWebButton {
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    line-height: 1.2;
+    border-radius: 10px;
+    font-weight: 700;
+    height: 40px;
+    font-size: 1.2rem;
+    -webkit-padding-start: 1rem;
+    padding-inline-start: 1rem;
+    -webkit-padding-end: 1rem;
+    padding-inline-end: 1rem;
+    color: #8923f0;
+    background: transparent;
+}
+
+
+.congrats {
+  padding-top: 1rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.fireworks {
+  height: 3rem;
+}
+
+.numbers {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  display: inline;
+  vertical-align: middle;
 }

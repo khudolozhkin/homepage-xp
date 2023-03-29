@@ -14,6 +14,10 @@
     "work": "I work as a freelancer on app and video creation. I love everything about product launches, from planning and design to solving problems with code. Currently, I live by working as a video editor. In my free time, I work on my own product",
     "2003": "Born in Volzhsky, Russia",
     "2020": "Started working as a freelancer",
-    "2021": "Enrolled in NUST MISiS on “Computer Science and Engineering”"
+    "2021": "Enrolled in NUST MISiS on “Computer Science and Engineering”",
+    "congrats": {
+      "1": "You are the",
+      "2": "visitor to this website! Congratulations!"
+    }
   }
 }

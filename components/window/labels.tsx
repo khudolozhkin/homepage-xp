@@ -41,7 +41,7 @@ export default function Labels({dict}: WindowsLabelsProps) {
   const windowsLabels = windowsArray.map((window:any) => {
     return ( 
       <div key={window.id} onClick={() => {updClose(`id${window.id}`)}} className={styles.label}>
-        <div className={styles.image} style={{backgroundImage: `url(${window.icon})`}}></div>
+        <div className={styles.image} style={{backgroundRepeat: 'no-repeat',backgroundSize: 'contain', backgroundImage: `url(${window.icon})`}}></div>
         <div className={styles.title}>{dict.titles[`id${window.id}`]}</div>
       </div>
     )
@@ -51,7 +51,7 @@ export default function Labels({dict}: WindowsLabelsProps) {
     <div className={styles.container}>
       {windowsLabels}
       <div onClick={() => {window.open('https://github.com/Halatnbly/homepage-xp', '_blank')}} className={styles.label}>
-        <div className={styles.image} style={{backgroundImage: `url(assets/hand.gif)`}}></div>
+        <div className={styles.image} style={{backgroundSize: 'contain', backgroundImage: `url(assets/github.gif)`}}></div>
         <div className={styles.title}>{dict.titles.source}</div>
       </div>
     </div>
