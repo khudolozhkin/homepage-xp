@@ -1,10 +1,7 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './page.module.css';
 import Windows from '@/components/window/windows';
-import { getDictionary } from './dictionaries'
-import Link from 'next/link';
+import { getDictionary } from './dictionaries';
 import Taskbar from '@/components/taskbar/taskbar';
-import AboutMe from '@/components/about-me/about-me';
 import Labels from '@/components/window/labels';
 
 type Props = {
