@@ -1,5 +1,4 @@
 export function LinkWindow(id: string, windowsContext: any) {
-  console.log(windowsContext)
   if (windowsContext.context.windows[id].isClose) {
     let newContext:any = windowsContext.context;
     for (var window in newContext.windows) {

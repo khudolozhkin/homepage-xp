@@ -32,7 +32,7 @@ export default function AboutMe({dict, lang}: AboutMeProps) {
               {dict.aboutMe.work} <span onClick={() => LinkWindow('id4', windowsContext)} className={styles.windowLink}>FutHelper</span>.
             </p>
           </div>
-          <div className={styles.portfolio} onClick={() => LinkWindow('id2', windowsContext)}>
+          <div className={styles.portfolio} onClick={() => LinkWindow('2', windowsContext)}>
             <img src='./assets/hand.gif' width={30} style={{rotate: '90deg', paddingTop: '4rem'}}/>
             <div className={styles.bounceDiv}>
               <span style={{display: 'inline-block', animationDelay: '80ms'}} className={styles.bounce_me}>{itsRu ? 'П' : 'P'}</span>
@@ -69,9 +69,9 @@ export default function AboutMe({dict, lang}: AboutMeProps) {
                     <span className={styles.onTheWebSpan}>
                       <Image style={{marginRight: '1rem'}} className={styles.onTheWebImage} src={`/assets/telegram.svg`} width={16} height={16} alt='Telegram'/>
                     </span>
-                    <text className={styles.onTheWebLink}>
+                    <p className={styles.onTheWebLink}>
                     @fredryx
-                    </text>
+                    </p>
                   </button>
                 </a>
               </li>
@@ -82,9 +82,9 @@ export default function AboutMe({dict, lang}: AboutMeProps) {
                     <span className={styles.onTheWebSpan}>
                       <Image style={{marginRight: '1rem'}} className={styles.onTheWebImage} src={`/assets/github.svg`} width={16} height={16} alt='Telegram'/>
                     </span>
-                    <text className={styles.onTheWebLink}>
+                    <p className={styles.onTheWebLink}>
                     @halatnbly
-                    </text>
+                    </p>
                   </button>
                 </a>
               </li>
@@ -95,9 +95,9 @@ export default function AboutMe({dict, lang}: AboutMeProps) {
                     <span className={styles.onTheWebSpan}>
                       <Image style={{marginRight: '1rem'}} className={styles.onTheWebImage} src={`/assets/gmail.svg`} width={16} height={16} alt='Telegram'/>
                     </span>
-                    <text className={styles.onTheWebLink}>
+                    <p className={styles.onTheWebLink}>
                     ahuddmt@gmail.com
-                    </text>
+                    </p>
                   </button>
                 </a>
               </li>

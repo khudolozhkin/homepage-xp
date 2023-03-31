@@ -17,28 +17,28 @@ export default function Windows( {lang, dict}: taskProps ) {
   
   return (
     <>
-      <WindowProvider id='id1'>
-          <Window title={dict.titles.id1} id='id1'><AboutMe dict={dict} lang={lang}/></Window>
+      <WindowProvider id='1'>
+          <Window title={dict.titles.id1} id='1'><AboutMe dict={dict} lang={lang}/></Window>
       </WindowProvider>
       
-      <WindowProvider id='id2'>
-          <Window title={dict.titles.id2} id='id2'> </Window>
+      <WindowProvider id='2'>
+          <Window title={dict.titles.id2} id='2'> </Window>
       </WindowProvider>
 
-      <WindowProvider id='id3'>
-          <Window title={dict.titles.id3} id='id3'> </Window>
+      <WindowProvider id='3'>
+          <Window title={dict.titles.id3} id='3'> </Window>
       </WindowProvider>
 
-      <WindowProvider id='id4'>
-          <Window title={dict.titles.id4} id='id4'> </Window>
+      <WindowProvider id='4'>
+          <Window title={dict.titles.id4} id='4'> </Window>
       </WindowProvider>
 
-      <WindowProvider id='id5'>
-          <Window title={dict.titles.id5} id='id5'> </Window>
+      <WindowProvider id='5'>
+          <Window title={dict.titles.id5} id='5'> </Window>
       </WindowProvider>
 
-      <WindowProvider id='id6'>
-          <Window title={dict.titles.id6} id='id6'> </Window>
+      <WindowProvider id='6'>
+          <Window title={dict.titles.id6} id='6'> </Window>
       </WindowProvider>
     </>
   )

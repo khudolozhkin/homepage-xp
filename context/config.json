@@ -1,6 +1,6 @@
 {
   "windows": {
-    "id1": {
+    "1": {
       "id": 1,
       "top": 100,
       "left": 250,
@@ -10,9 +10,9 @@
       "zIndex": 1,
       "isClose": false,
       "isMinimize": false,
-      "icon": "/assets/maximize.svg"
+      "icon": "/assets/about-me.gif"
     },
-    "id2": {
+    "2": {
       "id": 2,
       "top": 100,
       "left": 222,
@@ -24,7 +24,7 @@
       "isMinimize": false,
       "icon": "/assets/minimize.svg"
     },
-    "id3": {
+    "3": {
       "id": 3,
       "top": 100,
       "left": 222,
@@ -36,7 +36,7 @@
       "isMinimize": false,
       "icon": "/assets/minimize.svg"
     },
-    "id4": {
+    "4": {
       "id": 4,
       "top": 100,
       "left": 222,
@@ -48,7 +48,7 @@
       "isMinimize": false,
       "icon": "/assets/futhelper.png"
     },
-    "id5": {
+    "5": {
       "id": 5,
       "top": 100,
       "left": 222,
@@ -60,7 +60,7 @@
       "isMinimize": false,
       "icon": "/assets/minimize.svg"
     },
-    "id6": {
+    "6": {
       "id": 6,
       "top": 100,
       "left": 222,

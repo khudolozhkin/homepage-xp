@@ -38,10 +38,12 @@ export default function Labels({dict}: WindowsLabelsProps) {
     windowsArray.push(windowsContext.context.windows[windowC])
   }
 
-  const windowsLabels = windowsArray.map((window:any) => {
+  const WindowsLabels = windowsArray.map((window:any) => {
     return ( 
-      <div key={window.id} onClick={() => {updClose(`id${window.id}`)}} className={styles.label}>
-        <div className={styles.image} style={{backgroundRepeat: 'no-repeat',backgroundSize: 'contain', backgroundImage: `url(${window.icon})`}}></div>
+      <div key={window.id} onClick={() => {updClose(window.id)}} className={styles.label}>
+        <div className={styles.image} style={{backgroundRepeat: 'no-repeat',backgroundSize: 'contain', backgroundImage: `url(${window.icon})`}}>
+          <div className={styles.yarlblk} style={{backgroundRepeat: 'no-repeat',backgroundSize: 'contain', backgroundImage: `url(/assets/label.png)`}}></div>
+        </div>
         <div className={styles.title}>{dict.titles[`id${window.id}`]}</div>
       </div>
     )
@@ -49,10 +51,12 @@ export default function Labels({dict}: WindowsLabelsProps) {
   
   return (
     <div className={styles.container}>
-      {windowsLabels}
+      {WindowsLabels}
       <div onClick={() => {window.open('https://github.com/Halatnbly/homepage-xp', '_blank')}} className={styles.label}>
-        <div className={styles.image} style={{backgroundSize: 'contain', backgroundImage: `url(assets/github.gif)`}}></div>
-        <div className={styles.title}>{dict.titles.source}</div>
+      <div className={styles.image} style={{backgroundRepeat: 'no-repeat',backgroundSize: 'contain', backgroundImage: `url(/assets/github.gif)`}}>
+        <div className={styles.yarlblk} style={{backgroundRepeat: 'no-repeat',backgroundSize: 'contain', backgroundImage: `url(/assets/label.png)`}}></div>
+      </div>
+      <div className={styles.title}>{dict.titles.source}</div>
       </div>
     </div>
   )

@@ -9,6 +9,14 @@
   flex-wrap: wrap;
 }
 
+.yarlblk {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: 5px;
+  left: -5px;
+}
+
 .label {
   width: 85px;
   height: auto;
