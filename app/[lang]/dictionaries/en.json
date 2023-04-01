@@ -19,5 +19,9 @@
       "1": "You are the",
       "2": "visitor to this website! Congratulations!"
     }
+  },
+  "posts" : {
+    "error": "Not yet( but at some point they will.",
+    "errorButton": "Ok"
   }
 }
