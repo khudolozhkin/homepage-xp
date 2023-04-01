@@ -1,7 +1,7 @@
 import './globals.css'
 import localFont from 'next/font/local';
 import WindowsProvider from '@/context/windows-context';
-import LoaderProvider from '@/context/loading-context';
+import Preloader from '@/components/preloader/preloader';
 
 export const metadata = {
   title: 'Homepage XP',
@@ -17,13 +17,12 @@ const myFont = localFont({
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ru" className={myFont.className}>
-      <LoaderProvider>
       <WindowsProvider>
         <body>
+          <Preloader/> 
           {children}
         </body>
       </WindowsProvider>
-      </LoaderProvider>
     </html>
   )
 }

@@ -1,15 +1,11 @@
 'use client'
-
 import { useState, useEffect, useContext } from "react";
-import { LoadingContext } from "@/context/loading-context";
 
 export default function Preloader() {
-  const loadingContext = useContext(LoadingContext)
-  const [isLoading, setIsLoading] = useState(loadingContext.loading?.itsFirstLoad);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(false);
-    loadingContext.setLoading(false)
  }, []);
   
   return (

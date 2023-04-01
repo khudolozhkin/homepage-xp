@@ -6,7 +6,6 @@ import AboutMe from '@/components/about-me/about-me';
 import { useContext, useState, useEffect } from 'react';
 import { WindowsContext } from '@/context/windows-context';
 import WindowProvider from './window-provider';
-import Preloader from '../preloader/preloader';
 
 type taskProps = {
   lang: string,
@@ -18,7 +17,6 @@ export default function Windows( {lang, dict}: taskProps ) {
   
   return (
       <>
-        <Preloader/>
         <WindowProvider id='1'>
             <Window title={dict.titles.id1} id='1'><AboutMe dict={dict} lang={lang}/></Window>
         </WindowProvider>
