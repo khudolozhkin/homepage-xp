@@ -22,7 +22,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "/assets/minimize.svg"
+      "icon": "/assets/works-label.gif"
     },
     "3": {
       "id": 3,
@@ -34,7 +34,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "/assets/minimize.svg"
+      "icon": "/assets/posts-label.gif"
     },
     "4": {
       "id": 4,
@@ -58,7 +58,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "/assets/minimize.svg"
+      "icon": "/assets/nfc-label.png"
     },
     "6": {
       "id": 6,
@@ -70,7 +70,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "/assets/minimize.svg"
+      "icon": "/assets/cip-label.png"
     }
   }
 }
