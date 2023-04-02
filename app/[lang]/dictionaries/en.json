@@ -20,6 +20,10 @@
       "2": "visitor to this website! Congratulations!"
     }
   },
+  "works": {
+    "applications": "Applications",
+    "futhelper": "Application for automatic trading of FIFA cards with a subscription system."
+  },
   "posts" : {
     "error": "Not yet( but at some point they will.",
     "errorButton": "Ok"

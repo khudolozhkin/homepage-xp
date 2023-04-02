@@ -1,0 +1,55 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.inContainer {
+  max-width: 520px;
+  width: 100%;
+  color: #222;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+}
+
+.work {
+  box-shadow: inset 1px 1px #fcfcfe, inset -1px -1px #fcfcfe, 1px 2px 2px 0 rgba(208,206,191,.75);
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg,#fcfcfe,#f4f3ee);
+  border: 1px solid #919b9c;
+}
+
+.work:hover {
+  cursor: pointer;
+}
+
+.workPhoto {
+  height: auto;
+  width: calc(100% - 20px);
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.h {
+  margin: 0 0 0 0;
+  margin-top: 1rem;
+}
+
+.p {
+  margin: 0 0 0 0;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+}

@@ -7,6 +7,7 @@ import { useContext, useState, useEffect } from 'react';
 import { WindowsContext } from '@/context/windows-context';
 import WindowProvider from './window-provider';
 import Posts from '../posts/posts';
+import Works from '../works/works';
 
 type taskProps = {
   lang: string,
@@ -23,7 +24,7 @@ export default function Windows( {lang, dict}: taskProps ) {
         </WindowProvider>
         
         <WindowProvider id='2'>
-            <Window title={dict.titles.id2} id='2'> </Window>
+            <Window title={dict.titles.id2} id='2'> <Works dict={dict} lang={lang}/> </Window>
         </WindowProvider>
 
         <WindowProvider id='3'>
