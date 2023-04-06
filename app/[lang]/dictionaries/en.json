@@ -22,7 +22,10 @@
   },
   "works": {
     "applications": "Applications",
-    "futhelper": "Application for automatic trading of FIFA cards with a subscription system."
+    "video": "Video",
+    "futhelper": "Application for automatic trading of FIFA cards with a subscription system.",
+    "NeedForCode": "IT show from Roman Sakutin and IJunior team. Test the developers for strength in a drift car! (participated as video editor)",
+    "CodeInPoke": "IT show in which programmers answer questions (participated as video editor)"
   },
   "posts" : {
     "error": "Not yet( but at some point they will.",

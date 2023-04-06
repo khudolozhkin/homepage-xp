@@ -11,7 +11,7 @@
 
 .button {
   flex-basis: 180px;
-  min-width: 40px;
+  min-width: 10px;
   margin-right: 2px;
   padding-right: 15px;
   margin-top: 4px;
@@ -31,7 +31,7 @@
 
 .buttonActive {
   flex-basis: 180px;
-  min-width: 40px;
+  min-width: 10px;
   margin-right: 2px;
   margin-top: 4px;
   padding-right: 15px;
