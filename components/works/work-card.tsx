@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useContext } from 'react'
+import { useState, useContext, useRef } from 'react'
 import styles from './works.module.css'
 import Image from 'next/image'
 import { LinkWindow } from '@/lib/linkWindow'
@@ -8,21 +8,22 @@ import { WindowsContext } from '@/context/windows-context'
 
 type CardProps = {
   staticImage: string,
-  hoverImage: string,
   lang: string,
   title: string,
   about: string,
   linkId: number
 }
 
-export default function WorkCard({staticImage, hoverImage, lang, title, about, linkId}: CardProps) {
-  const [currentImage, setCurrentImage] = useState(staticImage);
+export default function WorkCard({staticImage, lang, title, about, linkId}: CardProps) {
   const windowsContext = useContext(WindowsContext);
+  let video = useRef<HTMLVideoElement>(null);
 
   return (
     <>
-      <div onClick={() => LinkWindow(`${linkId}`, windowsContext)} onMouseEnter={() => {setCurrentImage(hoverImage)}} onMouseLeave={() => {setCurrentImage(staticImage)}}  className={styles.work}>
-            <Image src={`/assets/${currentImage}`} width={1280} height={720} alt={title} className={styles.workPhoto}/>
+      <div onClick={() => LinkWindow(`${linkId}`, windowsContext)} onMouseEnter={() => {video!.current!.play()}} onMouseLeave={() => {video!.current!.pause()}} className={styles.work}>
+            <video ref={video} className={styles.workPhoto} muted loop playsInline>
+              <source src={`/assets/${staticImage}`} type='video/mp4'/>
+            </video>
             <h4 className={styles.h}>{title}</h4>
             <p className={styles.p}>{about}</p>
       </div>
