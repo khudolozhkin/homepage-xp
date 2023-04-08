@@ -8,6 +8,7 @@ import { WindowsContext } from '@/context/windows-context';
 import WindowProvider from './window-provider';
 import Posts from '../posts/posts';
 import Works from '../works/works';
+import FutHelper from '../works/futhelper';
 
 type taskProps = {
   lang: string,
@@ -32,7 +33,7 @@ export default function Windows( {lang, dict}: taskProps ) {
         </WindowProvider>
 
         <WindowProvider id='4'>
-            <Window title={dict.titles.id4} id='4'> </Window>
+            <Window title={dict.titles.id4} id='4'> <FutHelper dict={dict} lang={lang}/> </Window>
         </WindowProvider>
 
         <WindowProvider id='5'>

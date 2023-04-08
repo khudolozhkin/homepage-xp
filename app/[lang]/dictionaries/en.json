@@ -30,5 +30,21 @@
   "posts" : {
     "error": "Not yet( but at some point they will.",
     "errorButton": "Ok"
+  },
+  "futhelper": {
+    "about": "The main functionality of the application is the automatic buy and sale of cards in FIFA. It is implemented using a browser extension. The interface is built right into the official FIFA WEB application.",
+    "linkName": "Website",
+    "link": "https://www.futhelper.ru/", 
+    "headers": [
+      "Platform",
+      "Stack"
+    ],
+    "info": [
+      "Chromium",
+      "NodeJS, React Next js 13, vanilla JS"
+    ],
+    "img": [
+      ""
+    ]
   }
 }

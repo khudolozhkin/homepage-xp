@@ -53,3 +53,56 @@
   margin-top: 5px;
   margin-bottom: 1rem;
 }
+
+.arrow {
+  margin-left: -0.1rem;
+  margin-right: .5rem;
+  width: 1rem;
+  height: 1.4rem;
+  display: inline-block;
+  line-height: 1em;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  color: currentColor;
+  scale: 0.8;
+}
+
+.workTitle {
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-wrap: break-word;
+}
+
+.workAbout {
+  text-align: justify;
+    text-indent: 1em;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.year {
+  display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 0.8rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    border-radius: .1rem;
+    padding-bottom: .1rem;
+    margin-left: -0.05rem;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
