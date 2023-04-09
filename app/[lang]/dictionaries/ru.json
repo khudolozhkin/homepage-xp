@@ -32,6 +32,8 @@
     "errorButton": "Пон"
   },
   "futhelper": {
+    "name": "FutHelper",
+    "year": "2023 -",
     "about": "Основной функционал приложения заключается в автоматической покупке и продаже карточек в FIFA. Реализуется с помощью расширения в браузере. Интерфейс вшит прямо в официальное ВЕБ приложение FIFA.",
     "linkName": "Сайт",
     "link": "https://www.futhelper.ru/", 
@@ -42,6 +44,38 @@
     "info": [
       "Chromium",
       "NodeJS, React Next js 13, vanilla JS"
+    ],
+    "img": [
+      "/assets/futhelper-test.png"
+    ]
+  },
+  "nfc": {
+    "name": "Need for Code",
+    "year": "2022",
+    "about": "Крупный и интересный проект с многокамерным монтажем и квадракоптером, а также интересными поворотами. Делал монтаж, графику, эффекты.",
+    "linkName": "Видео",
+    "link": "https://www.youtube.com/watch?v=cOYaDLAbY4w", 
+    "headers": [
+      "Стек"
+    ],
+    "info": [
+      "After Effects, Premier Pro"
+    ],
+    "img": [
+      ""
+    ]
+  },
+  "cip": {
+    "name": "Код в мишке",
+    "year": "2022",
+    "about": "Шоу в котором программисты соревновались отвечая на вопросы. Делал многокамерный монтаж и эффекты.",
+    "linkName": "Видео",
+    "link": "https://www.youtube.com/watch?v=cOYaDLAbY4w", 
+    "headers": [
+      "Стек"
+    ],
+    "info": [
+      "After Effects, Premier Pro"
     ],
     "img": [
       ""

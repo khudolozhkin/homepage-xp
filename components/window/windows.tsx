@@ -8,7 +8,7 @@ import { WindowsContext } from '@/context/windows-context';
 import WindowProvider from './window-provider';
 import Posts from '../posts/posts';
 import Works from '../works/works';
-import FutHelper from '../works/futhelper';
+import WorkPage from '../works/work-page';
 
 type taskProps = {
   lang: string,
@@ -33,15 +33,15 @@ export default function Windows( {lang, dict}: taskProps ) {
         </WindowProvider>
 
         <WindowProvider id='4'>
-            <Window title={dict.titles.id4} id='4'> <FutHelper dict={dict} lang={lang}/> </Window>
+            <Window title={dict.titles.id4} id='4'> <WorkPage workName='futhelper' dict={dict} lang={lang}/> </Window>
         </WindowProvider>
 
         <WindowProvider id='5'>
-            <Window title={dict.titles.id5} id='5'> </Window>
+            <Window title={dict.titles.id5} id='5'> <WorkPage workName='nfc' dict={dict} lang={lang}/> </Window>
         </WindowProvider>
 
         <WindowProvider id='6'>
-            <Window title={dict.titles.id6} id='6'> </Window>
+            <Window title={dict.titles.id6} id='6'> <WorkPage workName='cip' dict={dict} lang={lang}/> </Window>
         </WindowProvider>
       </>
   )

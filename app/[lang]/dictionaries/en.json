@@ -32,6 +32,8 @@
     "errorButton": "Ok"
   },
   "futhelper": {
+    "name": "FutHelper",
+    "year": "2023 -",
     "about": "The main functionality of the application is the automatic buy and sale of cards in FIFA. It is implemented using a browser extension. The interface is built right into the official FIFA WEB application.",
     "linkName": "Website",
     "link": "https://www.futhelper.ru/", 
@@ -42,6 +44,38 @@
     "info": [
       "Chromium",
       "NodeJS, React Next js 13, vanilla JS"
+    ],
+    "img": [
+      "/assets/futhelper-test.png"
+    ]
+  },
+  "nfc": {
+    "name": "Need for Code",
+    "year": "2022",
+    "about": "A large and interesting project with multi-camera editing and a quadcopter, as well as interesting twists and turns. I did editing, graphics, effects.",
+    "linkName": "Video",
+    "link": "https://www.youtube.com/watch?v=cOYaDLAbY4w", 
+    "headers": [
+      "Stack"
+    ],
+    "info": [
+      "After Effects, Premier Pro"
+    ],
+    "img": [
+      ""
+    ]
+  },
+  "cip": {
+    "name": "Code in poke",
+    "year": "2022",
+    "about": "A show in which programmers competed by answering questions. Made multi-camera editing and effects.",
+    "linkName": "Video",
+    "link": "https://www.youtube.com/watch?v=cOYaDLAbY4w", 
+    "headers": [
+      "Stack"
+    ],
+    "info": [
+      "After Effects, Premier Pro"
     ],
     "img": [
       ""

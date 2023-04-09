@@ -96,6 +96,7 @@
     border-radius: .1rem;
     padding-bottom: .1rem;
     margin-left: -0.05rem;
+    background-color: #fffceb;
 }
 
 .list {
@@ -105,4 +106,23 @@
   margin-top: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.header {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 0.8rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding-left: .2rem;
+  padding-right: .2rem;
+  border-radius: .1rem;
+  padding-bottom: .1rem;
+  margin-right: .5rem;
+  background-color: #fffceb
+}
+
+.info {
+
 }
