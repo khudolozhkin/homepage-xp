@@ -20,6 +20,14 @@
   max-width: 520px;
 }
 
+@media (max-width: 520px) { 
+  .outContainer {
+    width: 90%;
+    min-width: 100px;
+    max-width: 520px;
+  }
+ }
+
 .meImg {
   animation: morph 8s ease-in-out infinite;
     background-position: 50%;
@@ -69,6 +77,7 @@
 .welcomeImg {
   margin-top: 2rem;
   animation: blink 1s step-end infinite;
+  width: 100%;
 }
 
 .blink { 

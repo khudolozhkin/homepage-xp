@@ -13,6 +13,14 @@
   color: #222;
 }
 
+@media (max-width: 520px) { 
+  .inContainer {
+    width: 90%;
+    min-width: 100px;
+    max-width: 520px;
+  }
+ }
+
 .grid {
   display: grid;
   grid-gap: 1.5rem;
