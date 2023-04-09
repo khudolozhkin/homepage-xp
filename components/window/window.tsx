@@ -25,7 +25,6 @@ export default function Window ({title, id, children}: WindowProps) {
   const [widthW, setWidth] = useState(windowsContext.context.windows[id].width)
   const [heightW, setHeight] = useState(windowsContext.context.windows[id].height)
   const [zIndexW, setZIndexW] = useState(windowsContext.context.windows[id].zIndex)
-
   
   const windows = useRef<HTMLDivElement>(null);
   const titleBar = useRef<HTMLDivElement>(null);
@@ -47,7 +46,7 @@ export default function Window ({title, id, children}: WindowProps) {
       if (window = id) {
         newContext.windows[id].isClose = 1;
 
-        windowsContext.setContext({"windows" : newContext.windows});
+        windowsContext.setContext({"windows" : newContext.windows, "userPlatform": `${windowsContext.context.userPlatform}`});;
       }
     }
   }
@@ -57,7 +56,7 @@ export default function Window ({title, id, children}: WindowProps) {
     for (var window in newContext.windows) {
       if (window = id) {
         newContext.windows[id].isMinimize = 1;
-        windowsContext.setContext({"windows" : newContext.windows});
+        windowsContext.setContext({"windows" : newContext.windows, "userPlatform": `${windowsContext.context.userPlatform}`});
       }
     }
   }
@@ -79,7 +78,7 @@ export default function Window ({title, id, children}: WindowProps) {
           }
         }
         
-        windowsContext.setContext({"windows" : newContext.windows});
+        windowsContext.setContext({"windows" : newContext.windows, "userPlatform": `${windowsContext.context.userPlatform}`});
       }
     }
   }
@@ -103,7 +102,7 @@ export default function Window ({title, id, children}: WindowProps) {
           newContext.windows[window].width = parseInt(windows.current!.style.width);
         }
 
-        windowsContext.setContext({"windows" : newContext.windows});
+        windowsContext.setContext({"windows" : newContext.windows, "userPlatform": `${windowsContext.context.userPlatform}`});
       }
     }
   }
@@ -117,7 +116,7 @@ export default function Window ({title, id, children}: WindowProps) {
         } else {
           newContext.windows[window].fullScreen = false;
         }
-        windowsContext.setContext({"windows" : newContext.windows});
+        windowsContext.setContext({"windows" : newContext.windows, "userPlatform": `${windowsContext.context.userPlatform}`});
         setFullScreen(fullScreen)
       }
     }
@@ -144,6 +143,20 @@ export default function Window ({title, id, children}: WindowProps) {
       topRef.current?.removeEventListener("mousedown", onMouseDownTopResize);
       
       windows.current?.removeEventListener('mousedown', mainIndex);
+    }
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/.test(navigator.userAgent)) {
+      let newContext = windowsContext.context;
+      newContext!.userPlatform = 'mobile';
+      for (var curWindow in newContext.windows) {
+        newContext.windows[curWindow].left = '70';
+        newContext.windows[curWindow].width = '300';
+        newContext.windows[curWindow].height = '400';
+        setLeft(70);
+        setWidth(300)
+        setHeight(400)
+      }
+      windowsContext.setContext(newContext);
     }
 
     let width = parseInt(windows.current!.style.width, 10);
@@ -177,6 +190,24 @@ export default function Window ({title, id, children}: WindowProps) {
       }
     }
 
+    const onDragMobile = (e: any) => {
+      top = e.changedTouches[0].pageY - shiftY;
+      left = e.changedTouches[0].pageX - shiftX;
+      windows.current!.style.zIndex = '10';
+      windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
+    }
+
+    const onDownMobile = (e: any) => {
+      isClicked = true;
+      shiftX = e.targetTouches[0].clientX - titleBar!.current!.getBoundingClientRect().left;
+      shiftY = e.targetTouches[0].clientY - titleBar!.current!.getBoundingClientRect().top;
+    }
+
+    const onUpMobile = (e: any) => {
+      console.log(1)
+      isClicked = false;
+    }
+
     const onDown = (e: any) => {
       isClicked = true;
       shiftX = e.clientX - titleBar!.current!.getBoundingClientRect().left;
@@ -195,6 +226,11 @@ export default function Window ({title, id, children}: WindowProps) {
     document.addEventListener('mousemove', onDrag);
     titleBar.current?.addEventListener('mouseup', onUp)
     windows.current?.addEventListener('mousedown', mainIndex)
+
+    titleBar.current?.addEventListener("touchstart", onDownMobile)
+    titleBar.current?.addEventListener("touchmove", onDragMobile);
+    titleBar.current?.addEventListener("touchend", onUp)
+    windows.current?.addEventListener("touchstart", mainIndex)
 
 
     // right resize

@@ -5,7 +5,7 @@ export function LinkWindow(id: string, windowsContext: any) {
       if (window = id) {
         newContext.windows[id].isClose = false;
         newContext.windows[id].zIndex = 11;
-        windowsContext.setContext({"windows" : newContext.windows});
+        windowsContext.setContext({"windows" : newContext.windows, "userPlatform": `${windowsContext.context.userPlatform}`});
       }
     }
   } else {
@@ -14,7 +14,7 @@ export function LinkWindow(id: string, windowsContext: any) {
         if (window = id) {
           newContext.windows[id].isMinimize = false;
           newContext.windows[id].zIndex = 11;
-          windowsContext.setContext({"windows" : newContext.windows});
+          windowsContext.setContext({"windows" : newContext.windows, "userPlatform": `${windowsContext.context.userPlatform}`});
         }
     }
   }

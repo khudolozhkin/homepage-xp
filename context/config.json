@@ -72,5 +72,6 @@
       "isMinimize": false,
       "icon": "/assets/cip-label.png"
     }
-  }
+  },
+  "userPlatform": ""
 }
