@@ -4,3 +4,9 @@
   position: absolute;
   overflow: hidden;
 }
+
+@media (pointer:coarse){
+  .main {
+    height: calc(100vh - 70px)
+  }  
+}
