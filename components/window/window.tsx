@@ -143,6 +143,14 @@ export default function Window ({title, id, children}: WindowProps) {
       topRef.current?.removeEventListener("mousedown", onMouseDownTopResize);
       
       windows.current?.removeEventListener('mousedown', mainIndex);
+
+      titleBar.current?.removeEventListener("touchstart", onDownMobile);
+
+      titleBar.current?.removeEventListener("touchmove", onDragMobile);
+
+      titleBar.current?.removeEventListener("touchend", onUp);
+
+      windows.current?.removeEventListener("touchstart", mainIndex);
     }
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/.test(navigator.userAgent)) {
@@ -165,6 +173,8 @@ export default function Window ({title, id, children}: WindowProps) {
     let left = leftW;
     let shiftX = 0;
     let shiftY = 0;
+    let shiftXM = 0;
+    let shiftYM = 0;
 
     const mainIndex = (e: any) => {
       setZIndexW(windowsContext.context.windows[id].zIndex);
@@ -191,20 +201,25 @@ export default function Window ({title, id, children}: WindowProps) {
     }
 
     const onDragMobile = (e: any) => {
-      top = e.changedTouches[0].pageY - shiftY;
-      left = e.changedTouches[0].pageX - shiftX;
+
+      top = e.changedTouches[0].pageY - shiftYM;
+      left = e.changedTouches[0].pageX - shiftXM;
       windows.current!.style.zIndex = '10';
-      windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
+      windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`;
+      if (e.changedTouches[0].pageY < 20) { 
+        top += 50;
+        onUpMobile(e);
+        maximize.current?.click()
+      }
     }
 
     const onDownMobile = (e: any) => {
       isClicked = true;
-      shiftX = e.targetTouches[0].clientX - titleBar!.current!.getBoundingClientRect().left;
-      shiftY = e.targetTouches[0].clientY - titleBar!.current!.getBoundingClientRect().top;
+      shiftXM = e.targetTouches[0].clientX - titleBar!.current!.getBoundingClientRect().left;
+      shiftYM = e.targetTouches[0].clientY - titleBar!.current!.getBoundingClientRect().top;
     }
 
     const onUpMobile = (e: any) => {
-      console.log(1)
       isClicked = false;
     }
 
@@ -215,6 +230,7 @@ export default function Window ({title, id, children}: WindowProps) {
     }
 
     const onUp = () => {
+      if (windowsContext.context.userPlatform == 'mobile') return
       isClicked = false;
       setLeft(left);
       setTop(top);
@@ -229,23 +245,53 @@ export default function Window ({title, id, children}: WindowProps) {
 
     titleBar.current?.addEventListener("touchstart", onDownMobile)
     titleBar.current?.addEventListener("touchmove", onDragMobile);
-    titleBar.current?.addEventListener("touchend", onUp)
+    titleBar.current?.addEventListener("touchend", onUpMobile)
     windows.current?.addEventListener("touchstart", mainIndex)
 
 
     // right resize
 
-    const onMouseMoveRightResize = (e: MouseEvent) => {
-      const dx = e.clientX - x;
-      x = e.clientX;
+    const onMouseDownRightResizeMobile = (e: TouchEvent) => {
+      x = e.targetTouches[0].clientX;
+      windows.current!.style.left = styles.left;
+      windows.current!.style.right = '';
+      document.addEventListener("touchmove", onMouseMoveRightResizeMobile);
+      document.addEventListener("touchend", onMouseUpRightResizeMobile);
+    };
+
+    let xM:any;
+    const onMouseMoveRightResizeMobile = (e: TouchEvent) => {
+      console.log(width)
+      const dx = e.targetTouches[0].clientX - xM;
+      xM = e.targetTouches[0].clientX;
       width = width + dx;
-      if (width >= 500) {
+      if (width >= 300) {
         windows.current!.style.width = `${width}px`;
         setWidth(width);
       } 
       else 
       {
-        width = 500
+        width = 300
+      }
+    }
+
+    const onMouseUpRightResizeMobile = (e: TouchEvent) => {
+      document.removeEventListener("touchmove", onMouseMoveRightResizeMobile);
+      document.removeEventListener("touchend", onMouseUpRightResizeMobile);
+      updContextResize(id, windowsContext.context)
+    };
+
+    const onMouseMoveRightResize = (e: MouseEvent) => {
+      const dx = e.clientX - x;
+      x = e.clientX;
+      width = width + dx;
+      if (width >= 300) {
+        windows.current!.style.width = `${width}px`;
+        setWidth(width);
+      } 
+      else 
+      {
+        width = 300
       }
     };
 
@@ -255,6 +301,7 @@ export default function Window ({title, id, children}: WindowProps) {
     };
     
     const onMouseDownRightResize = (e: MouseEvent) => {
+      if (windowsContext.context.userPlatform == 'mobile') return;
       x = e.clientX;
       windows.current!.style.left = styles.left;
       windows.current!.style.right = '';
@@ -268,13 +315,13 @@ export default function Window ({title, id, children}: WindowProps) {
       const dy = e.clientY - y;
       height = height + dy;
       y = e.clientY;
-      if (height >= 500) {
+      if (height >= 300) {
         windows.current!.style.height = `${height}px`;
         setHeight(height)
       } 
       else
       {
-        height = 500
+        height = 300
       }
     };
 
@@ -297,7 +344,7 @@ export default function Window ({title, id, children}: WindowProps) {
       const dx = e.clientX - x;
       x = e.clientX;
       width = width - dx;
-      if (width >= 500) {
+      if (width >= 300) {
         windows.current!.style.width = `${width}px`;
         left = e.pageX - shiftX;
         windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
@@ -307,7 +354,7 @@ export default function Window ({title, id, children}: WindowProps) {
       } 
       else 
       {
-        width = 500;
+        width = 300;
       }
     };
 
@@ -330,7 +377,7 @@ export default function Window ({title, id, children}: WindowProps) {
       const dy = e.clientY - y;
       height = height - dy;
       y = e.clientY;
-      if (height >= 500) {
+      if (height >= 300) {
         windows.current!.style.height = `${height}px`;
         top = e.pageY - shiftY;
         windows.current!.style.transform = `translateX(${left}px) translateY(${top}px)`
@@ -340,7 +387,7 @@ export default function Window ({title, id, children}: WindowProps) {
       } 
       else
       {
-        height = 500;
+        height = 300;
       }
     };
 
@@ -359,6 +406,7 @@ export default function Window ({title, id, children}: WindowProps) {
     };
 
     right.current?.addEventListener("mousedown", onMouseDownRightResize);
+    right.current?.addEventListener("touchstart", onMouseDownRightResizeMobile);
     bottom.current?.addEventListener("mousedown", onMouseDownBottomResize);
     leftRef.current?.addEventListener("mousedown", onMouseDownLeftResize);
     topRef.current?.addEventListener("mousedown", onMouseDownTopResize);

@@ -4,9 +4,18 @@ import { useState, useEffect, useContext } from "react";
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
+  const onLoad = () => {
+    setIsLoading(false)
+  } 
+
   useEffect(() => {
-    setIsLoading(false);
- }, []);
+    if (document.readyState === 'complete') {
+      onLoad();
+    } else {
+      window.addEventListener('load', onLoad);
+      return () => window.removeEventListener('load', onLoad);
+    }
+  }, []);
   
   return (
     <>
@@ -41,8 +50,11 @@ export default function Preloader() {
             backgroundImage: 'url(/assets/welcome-loading.gif)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            width: '600px',
+            width: '90%',
             height: '420px',
+            maxWidth: '600px',
+            backgroundPosition: 'center',
+            marginLeft: '18px'
           }}>
 
           </div>

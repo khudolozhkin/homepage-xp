@@ -24,14 +24,6 @@ export default function Taskbar( {lang, dict}: taskProps) {
           </div>
         </div>
       </div>
-      <Image
-            className={styles.wallpaper}
-            alt='wallpaper'
-            src='/assets/wallpaper.jpg'
-            width={5333}
-            height={4000}
-            style={{userSelect: 'none', pointerEvents: 'none'}}
-      />
     </>
   )
 }

@@ -21,7 +21,7 @@ export default function AboutMe({dict, lang}: AboutMeProps) {
           <img src='assets/fire.gif' style={{width: '100%', marginTop: '-1rem'}}/>
           <div className={styles.hello}>
             <div className={styles.text}>
-              <h1 style={{fontWeight: '700', margin: '0 0 0 0'}}>{dict.aboutMe.name}</h1>
+              <h1 className={styles.meName} style={{fontWeight: '700', margin: '0 0 0 0'}}>{dict.aboutMe.name}</h1>
               <h3 style={{fontWeight: '300', margin: '0 0 0 0'}}>{dict.aboutMe.about}</h3>
             </div>
             <Image className={styles.meImg} src='/assets/me.jpg' width={100} height={100} alt='Me'/>
@@ -29,7 +29,7 @@ export default function AboutMe({dict, lang}: AboutMeProps) {
           <div className={styles.work}>
             <h3 className={styles.paragraph} style={{fontSize: '20px', fontWeight: '600'}}>{(lang == 'ru') ? 'Работа' : 'Work'}</h3>
             <p className={styles.p}>
-              {dict.aboutMe.work} <span onClick={() => LinkWindow('id4', windowsContext)} className={styles.windowLink}>FutHelper</span>.
+              {dict.aboutMe.work} <span onClick={() => LinkWindow('4', windowsContext)} className={styles.windowLink}>FutHelper</span>.
             </p>
           </div>
           <div className={styles.portfolio} onClick={() => LinkWindow('2', windowsContext)}>

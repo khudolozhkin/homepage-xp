@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext, useRef, useEffect } from 'react'
 import styles from './works.module.css'
 import Image from 'next/image'
 import { LinkWindow } from '@/lib/linkWindow'
@@ -18,6 +18,11 @@ export default function WorkCard({staticImage, lang, title, about, linkId}: Card
   const windowsContext = useContext(WindowsContext);
   let video = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    video!.current!.play()
+    video!.current!.pause()
+  }, []);
+
   return (
     <>
       <div onClick={() => LinkWindow(`${linkId}`, windowsContext)} onMouseEnter={() => {video!.current!.play()}} onMouseLeave={() => {video!.current!.pause()}} className={styles.work}>
@@ -25,7 +30,7 @@ export default function WorkCard({staticImage, lang, title, about, linkId}: Card
               <source src={`/assets/${staticImage}`} type='video/mp4'/>
             </video>
             <h4 className={styles.h}>{title}</h4>
-            <p className={styles.p}>{about}</p>
+            <p className={styles.p} style={{width: '90%'}}>{about}</p>
       </div>
     </>
   )
