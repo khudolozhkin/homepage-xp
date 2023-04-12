@@ -151,6 +151,8 @@ export default function Window ({title, id, children}: WindowProps) {
       titleBar.current?.removeEventListener("touchend", onUp);
 
       windows.current?.removeEventListener("touchstart", mainIndex);
+
+      leftRef.current?.removeEventListener("touchstart", onMouseDownLeftResizeMobile);
     }
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/.test(navigator.userAgent)) {
@@ -314,6 +316,39 @@ export default function Window ({title, id, children}: WindowProps) {
     };
 
     // Bottom resize
+    let yM:any;
+
+    const onMouseDownBottomResizeMobile = (e: TouchEvent) => {
+      y = e.targetTouches[0].clientY;
+      windows.current!.style.top = styles.top;
+      windows.current!.style.bottom = '';
+      document.addEventListener("touchmove", onMouseMoveBottomResizeMobile);
+      document.addEventListener("touchend", onMouseUpBottomResizeMobile);
+    };
+
+    const onMouseMoveBottomResizeMobile = (e: TouchEvent) => {
+      const dy = e.targetTouches[0].clientY - yM;
+      if (dy > 100) {
+        yM = e.targetTouches[0].clientY;
+        return
+      }
+      height = height + dy;
+      yM = e.targetTouches[0].clientY;
+      if (height >= 300) {
+        windows.current!.style.height = `${height}px`;
+        setHeight(height)
+      } 
+      else
+      {
+        height = parseInt(windows.current!.style.height, 10);
+      }
+    }
+
+    const onMouseUpBottomResizeMobile = (e: TouchEvent) => {
+      document.removeEventListener("touchmove", onMouseMoveBottomResizeMobile);
+      document.removeEventListener("touchend", onMouseUpBottomResizeMobile);
+      updContextResize(id, windowsContext.context)
+    };
 
     const onMouseMoveBottomResize = (e: MouseEvent) => {
       const dy = e.clientY - y;
@@ -343,6 +378,42 @@ export default function Window ({title, id, children}: WindowProps) {
     };
 
     // Left resize
+    
+    const onMouseMoveLeftResizeMobile = (e: TouchEvent) => {
+      const dx = e.targetTouches[0].clientX - xM;
+      if (dx > 100) {
+        xM = e.targetTouches[0].clientX;
+        return
+      }
+      xM = e.targetTouches[0].clientX;
+      width = width - dx;
+      if (width >= 250) {
+        windows.current!.style.width = `${width}px`;
+        left = e.targetTouches[0].pageX - shiftX;
+        windows.current!.style.transform = `translateX(${left}px) translateY(${top})`
+        setWidth(width);
+        setLeft(left);
+        setTop(top);
+        updContextResize(id, windowsContext.context, left, top);
+      } 
+      else 
+      {
+        width = 250;
+      }
+    };
+
+    const onMouseUpLeftResizeMobile = (e: TouchEvent) => {
+      document.removeEventListener("touchmove", onMouseMoveLeftResizeMobile);
+    };
+
+    const onMouseDownLeftResizeMobile = (e: TouchEvent) => {
+      x = e.targetTouches[0].clientX;
+      windows.current!.style.right = windows.current!.style.right;
+      windows.current!.style.left = '';
+      shiftX = e.targetTouches[0].clientX - windows!.current!.getBoundingClientRect().left;
+      document.addEventListener("touchmove", onMouseMoveLeftResizeMobile);
+      document.addEventListener("touchend", onMouseUpLeftResizeMobile);
+    };
     
     const onMouseMoveLeftResize = (e: MouseEvent) => {
       const dx = e.clientX - x;
@@ -412,7 +483,9 @@ export default function Window ({title, id, children}: WindowProps) {
     right.current?.addEventListener("mousedown", onMouseDownRightResize);
     right.current?.addEventListener("touchstart", onMouseDownRightResizeMobile);
     bottom.current?.addEventListener("mousedown", onMouseDownBottomResize);
+    bottom.current?.addEventListener("touchstart", onMouseDownBottomResizeMobile);
     leftRef.current?.addEventListener("mousedown", onMouseDownLeftResize);
+    leftRef.current?.addEventListener("touchstart", onMouseDownLeftResizeMobile);
     topRef.current?.addEventListener("mousedown", onMouseDownTopResize);
     
     return cleanup
