@@ -261,17 +261,21 @@ export default function Window ({title, id, children}: WindowProps) {
 
     let xM:any;
     const onMouseMoveRightResizeMobile = (e: TouchEvent) => {
-      console.log(width)
       const dx = e.targetTouches[0].clientX - xM;
+      if (dx > 100) {
+        xM = e.targetTouches[0].clientX;
+        return
+      }
       xM = e.targetTouches[0].clientX;
       width = width + dx;
       if (width >= 300) {
+        
         windows.current!.style.width = `${width}px`;
         setWidth(width);
       } 
       else 
       {
-        width = 300
+        width = 300; 
       }
     }
 
