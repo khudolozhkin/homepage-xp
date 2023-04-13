@@ -204,3 +204,15 @@
   height: 100%;
   position: absolute;
 }
+
+@media (max-width: 520px) {
+  .left {
+    width: 10px;
+  }
+  .right {
+    width: 10px;
+  }
+  .bottom {
+    height: 10px;
+  }
+}

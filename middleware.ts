@@ -3,7 +3,13 @@ import { NextRequest, NextResponse } from 'next/server'
 let locales = ['en', 'ru']
 
 function getLocale(req: NextRequest) {
-  return 'ru'
+  const acceptLang = req.headers.get('accept-language')?.split("");
+  if (acceptLang?.slice(0,2).join('') == 'ru') 
+  {
+    return 'ru'
+  } else {
+    return 'en'
+  }
 }
 
 export async function middleware(req: NextRequest) {
