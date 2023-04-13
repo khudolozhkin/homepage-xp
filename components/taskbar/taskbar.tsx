@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import WindowsList from './windowsList'
 import LangChange from './langChange'
+import Start from './start'
 
 type taskProps = {
   lang: string,
@@ -16,7 +17,7 @@ export default function Taskbar( {lang, dict}: taskProps) {
       <div className={styles.container}>
         <div className={styles.elements}>
           <div className={styles.leftPart}>
-            <button style={{backgroundImage: `url('/assets/${lang}-start.png')`}}className={styles.start}></button>
+            <Start lang={lang}/>
             <WindowsList dict={dict}/>
           </div>
           <div className={styles.langs}>

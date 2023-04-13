@@ -163,3 +163,14 @@
   margin: 0 0 0 0;
   padding: 0 0 0 0;
 }
+
+.startDiv {
+  width: 70%;
+  height: 50%;
+  position: fixed;
+  background-color: rgb(236, 233, 216);
+  bottom: 40px;
+  left: 0;
+  max-width: 500px;
+  max-height: 600px;
+}
