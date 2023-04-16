@@ -46,7 +46,9 @@
       "NodeJS, React Next js 13, vanilla JS"
     ],
     "img": [
-      "/assets/futhelper-test.png"
+      "/assets/futhelper-test.png",
+      "/assets/futhelper-site2.png",
+      "/assets/futhelper-site3.png"
     ]
   },
   "nfc": {
@@ -62,7 +64,9 @@
       "After Effects, Premier Pro"
     ],
     "img": [
-      ""
+      "/assets/nfc-img1.png",
+      "/assets/nfc-img2.png",
+      "/assets/nfc-img3.png"
     ]
   },
   "cip": {
@@ -78,7 +82,9 @@
       "After Effects, Premier Pro"
     ],
     "img": [
-      ""
+      "/assets/cpd-img1.png",
+      "/assets/cpd-img2.png",
+      "/assets/cpd-img3.png"
     ]
   }
 }
