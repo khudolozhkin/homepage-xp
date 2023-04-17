@@ -10,4 +10,4 @@
 
 MIT License.
 
-[![HomepageXP](./screenshot.png)](https://homepage-xp.vercel.app/)
+[![HomepageXP](https://github.com/Halatnbly/homepage-xp/blob/main/public/screenshot.png)](https://homepage-xp.vercel.app/)
