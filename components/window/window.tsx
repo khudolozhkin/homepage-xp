@@ -203,7 +203,7 @@ export default function Window ({title, id, children}: WindowProps) {
     }
 
     const onDragMobile = (e: any) => {
-
+      if (isClicked == false) return;
       top = e.changedTouches[0].pageY - shiftYM;
       left = e.changedTouches[0].pageX - shiftXM;
       windows.current!.style.zIndex = '10';
