@@ -181,6 +181,7 @@
   width: 540px;
   height: 680px;
   max-width: 90%;
+  max-height: 80%;
   bottom: 40px;
   left: 0px;
   overflow: auto;
