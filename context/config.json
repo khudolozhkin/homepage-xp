@@ -10,7 +10,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "/assets/about-me.gif"
+      "icon": "/assets/about-me-opt.gif"
     },
     "2": {
       "id": 2,
@@ -22,7 +22,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "/assets/works-label.gif"
+      "icon": "/assets/works-label-opt.gif"
     },
     "3": {
       "id": 3,
@@ -34,7 +34,7 @@
       "zIndex": 1,
       "isClose": true,
       "isMinimize": false,
-      "icon": "/assets/posts-label.gif"
+      "icon": "/assets/posts-label-opt.gif"
     },
     "4": {
       "id": 4,

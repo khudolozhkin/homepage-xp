@@ -19,7 +19,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="ru" className={myFont.className}>
       <WindowsProvider>
         <body>
-          <Preloader/> 
+          {/* <Preloader/>  */}
           {children}
         </body>
       </WindowsProvider>

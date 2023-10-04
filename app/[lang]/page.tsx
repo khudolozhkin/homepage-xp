@@ -19,7 +19,7 @@ export default async function Home( props: Props ) {
     <main className={styles.main}>
       <Windows lang={props.params.lang} dict={dict}/>
       <Taskbar lang={props.params.lang} dict={dict}/>
-      <Background/>
+      <Background />
       <Labels dict={dict}/>
     </main>
   )

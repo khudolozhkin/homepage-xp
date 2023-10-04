@@ -12,8 +12,8 @@ export default function Background() {
             className={styles.wallpaper}
             alt='wallpaper'
             src='/assets/wallpaper.jpg'
-            width={5333}
-            height={4000}
+            width={4256}
+            height={3200}
             style={{userSelect: 'none', pointerEvents: 'none'}}
       />
     </>
