@@ -1,6 +1,6 @@
 # My multilingual Homepage 
 
-[https://homepage-xp.vercel.app/](https://homepage-xp.vercel.app/)
+[https://halatnbly.ru/](https://halatnbly.ru/)
 
 ## Stack
 
@@ -10,4 +10,4 @@
 
 MIT License.
 
-[![HomepageXP](https://github.com/Halatnbly/homepage-xp/blob/main/public/screenshot.png)](https://homepage-xp.vercel.app/)
+[![HomepageXP](https://github.com/Halatnbly/homepage-xp/blob/main/public/screenshot.png)](https://halatnbly.ru/)
