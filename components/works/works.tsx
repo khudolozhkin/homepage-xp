@@ -14,6 +14,7 @@ export default function Works({dict, lang}: WorksProps) {
         <h3>{dict.works.applications}</h3>
         <div className={styles.grid}>
           <WorkCard linkId={4} title='FutHelper' about={dict.works.futhelper} staticImage='futhelper-preview.mp4' lang={lang}/>
+          <WorkCard linkId={7} title={lang == 'ru' ? 'НашЮТрек' : 'NashYouTrack'} about={dict.works.nyt} staticImage='nyt.mp4' lang={lang}/>
         </div>
         <h3>{dict.works.video}</h3>
         <div className={styles.grid}>

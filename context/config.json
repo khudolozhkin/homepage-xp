@@ -71,6 +71,18 @@
       "isClose": true,
       "isMinimize": false,
       "icon": "/assets/cip-label.png"
+    },
+    "7": {
+      "id": 7,
+      "top": 100,
+      "left": 222,
+      "width": 700,
+      "height": 700,
+      "fullScreen": false,
+      "zIndex": 1,
+      "isClose": true,
+      "isMinimize": false,
+      "icon": "/assets/nyt.png"
     }
   },
   "userPlatform": ""

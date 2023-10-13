@@ -6,12 +6,13 @@
     "id4": "FutHelper",
     "id5": "Need For Code",
     "id6": "Code in Poke",
+    "id7": "NashYouTrack",
     "source": "Source"
   },
   "aboutMe": {
     "name": "Khudolozhkin Alexander",
     "about": "Hello, I'm an app developer based in Moscow!",
-    "work": "I work as a freelancer on app and video creation. I love everything about product launches, from planning and design to solving problems with code. Currently, I live by working as a video editor. In my free time, I work on my own product",
+    "work": "I work as a freelancer on app and video creation. I love everything about product launches, from planning and design to solving problems with code. In my free time, I work on my own product",
     "2003": "Born in Volzhsky, Russia",
     "2020": "Started working as a freelancer",
     "2021": "Enrolled in NUST MISiS on “Computer Science and Engineering”",
@@ -25,7 +26,8 @@
     "video": "Video",
     "futhelper": "Application for automatic trading of FIFA cards with a subscription system.",
     "NeedForCode": "IT show from Roman Sakutin and IJunior team. Test the developers for strength in a drift car! (participated as video editor)",
-    "CodeInPoke": "IT show in which programmers answer questions (participated as video editor)"
+    "CodeInPoke": "IT show in which programmers answer questions (participated as video editor)",
+    "nyt": "Projects manager with shared spaces, tables and cards."
   },
   "posts" : {
     "error": "Not yet( but at some point they will.",
@@ -85,6 +87,24 @@
       "/assets/cpd-img1.png",
       "/assets/cpd-img2.png",
       "/assets/cpd-img3.png"
+    ]
+  },
+  "nyt": {
+    "name": "NashYouTrack",
+    "year": "2023",
+    "about": "Projects manager with shared spaces, tables and cards. I use to manage my small projects and personal tasks.",
+    "linkName": "Website",
+    "link": "https://nyt.halatnbly.ru/", 
+    "headers": [
+      "Stack"
+    ],
+    "info": [
+      "NextJS 13, Prisma, SWR, Tailwind CSS, Zod, EditorJs"
+    ],
+    "img": [
+      "/assets/nyt-img1.png",
+      "/assets/nyt-img2.png",
+      "/assets/nyt-img3.png"
     ]
   }
 }

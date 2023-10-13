@@ -43,6 +43,10 @@ export default function Windows( {lang, dict}: taskProps ) {
         <WindowProvider id='6'>
             <Window title={dict.titles.id6} id='6'> <WorkPage workName='cip' dict={dict} lang={lang}/> </Window>
         </WindowProvider>
+
+        <WindowProvider id='7'>
+            <Window title={dict.titles.id7} id='7'> <WorkPage workName='nyt' dict={dict} lang={lang}/> </Window>
+        </WindowProvider>
       </>
   )
 }
